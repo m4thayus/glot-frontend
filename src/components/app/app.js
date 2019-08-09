@@ -4,7 +4,6 @@ import './app.css';
 import NavBar from '../nav-bar'
 import Texts from '../texts'
 
-
 function App() {
     return (
         <React.Fragment>

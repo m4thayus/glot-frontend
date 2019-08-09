@@ -1,9 +1,12 @@
 import React from "react";
+import TextsView from "./texts-view";
 
 class TextsContainer extends React.Component {
     render() {
+        let { texts } = this.props
+
         return (
-            <div>Texts</div>
+            texts.map(text => <TextsView key={text.id} text={text} />) 
         )
     }
 }

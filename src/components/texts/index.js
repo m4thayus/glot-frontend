@@ -1,1 +1,1 @@
-export { default } from './texts-container.js'
+export { default } from './texts-query.js'
