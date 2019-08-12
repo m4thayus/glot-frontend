@@ -50,15 +50,20 @@ class Navbar extends React.Component {
                         {
                         authToken
                             ? (
-                                <Button
+                                <Button.Group>
+                                    <Button primary>
+                                        My Profile
+                                    </Button>
+                                    <Button
                                     // color='red'
-                                    onClick={() => {
-                                        localStorage.removeItem(AUTH_TOKEN)
-                                        this.handleAuth()
-                                    }}
-                                >
-                                    Log Out
-                                </Button>
+                                        onClick={() => {
+                                            localStorage.removeItem(AUTH_TOKEN)
+                                            this.handleAuth()
+                                        }}
+                                    >
+                                        Log Out
+                                    </Button>
+                                </Button.Group>
                             ) : (
                                 <Button.Group>
                                     <Modal
@@ -82,7 +87,6 @@ class Navbar extends React.Component {
 
                 <Route path="/texts" component={Texts} />
                 <Route path="/translations" component={Translations} />
-                <Route path="/login" component={Login} />
             </Segment>
         )
     }
