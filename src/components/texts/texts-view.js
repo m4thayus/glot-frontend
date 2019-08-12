@@ -1,13 +1,19 @@
 import React from "react"
+import { Item, Segment } from 'semantic-ui-react'
 
 function TextsView(props){
     let { text } = props
 
     return (
-       <div>
-           <h2>{text.title}</h2>
-           <p>{text.content}</p>
-       </div> 
+        <Segment>
+            <Item>
+                <Item.Content>
+                   <Item.Header>{text.title}</Item.Header>
+                   <Item.Meta>{text.targetLanguage.name}</Item.Meta>
+                   <Item.Description>{text.content}</Item.Description>
+                </Item.Content>
+            </Item>
+        </Segment>    
     )
 }
 

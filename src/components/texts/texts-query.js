@@ -9,6 +9,12 @@ const TEXTS_QUERY = gql`
             id
             title 
             content
+            sourceLanguage {
+                name
+            }
+            targetLanguage {
+                name
+            }
         }
   }
 `
