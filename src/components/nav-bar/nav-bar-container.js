@@ -16,7 +16,7 @@ class Navbar extends React.Component {
                         to='/'
                     >
                         <Icon name='flag' />
-                        Glot
+                        glot
                     </Menu.Item>
                     <Menu.Item
                         name='texts'
