@@ -31,7 +31,12 @@ function TextsQuery(props){
         <Query query={TEXTS_QUERY}>
         {({ loading, error, data }) => {
             if (loading) return loader
-            if (error) return <div>{console.log(error)}</div>
+            if (error) return (
+                <React.Fragment>
+                    {console.log(error)}
+                    {loader}
+                </React.Fragment>
+            )
             return <TextsContainer texts={data.texts}/>
         }}
     </Query> 

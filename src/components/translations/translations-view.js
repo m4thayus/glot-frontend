@@ -9,6 +9,7 @@ function TranslationsView(props){
             <Item>
                 <Item.Content>
                    <Item.Header>{translation.title}</Item.Header>
+                   <Item.Meta>{translation.status}</Item.Meta>
                    <Item.Description>{translation.content}</Item.Description>
                 </Item.Content>
             </Item>

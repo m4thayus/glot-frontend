@@ -10,6 +10,10 @@ const TRANSLATIONS_QUERY = gql`
             id
             title 
             content
+            status
+            votes {
+                up
+            }
         }
   }
 `
@@ -25,7 +29,12 @@ function TranslationsQuery(props){
         <Query query={TRANSLATIONS_QUERY}>
         {({ loading, error, data }) => {
             if (loading) return loader
-            if (error) return <div>{console.log(error)}</div>
+            if (error) return (
+                <React.Fragment>
+                    {console.log(error)}
+                    {loader}
+                </React.Fragment>
+            )
             return <TranslationsContainer translations={data.translations}/>
         }}
     </Query> 
