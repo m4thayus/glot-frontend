@@ -3,10 +3,15 @@ import { Menu, Icon, Button, Segment } from "semantic-ui-react";
 import { Link, Route } from 'react-router-dom'
 import Texts from '../texts'
 import Translations from '../translations'
+import Login from '../login'
+import { AUTH_TOKEN } from "../../constants";
 
 
 class Navbar extends React.Component {
+
     render() {
+        const authToken = localStorage.getItem(AUTH_TOKEN)
+
         return (
             <Segment>
                 <Menu borderless>
@@ -31,16 +36,34 @@ class Navbar extends React.Component {
                     <Menu.Item 
                         position='right'
                     >
-                        <Button.Group>
-                            <Button>Sign Up</Button>
-                            <Button.Or />
-                            <Button primary>Log In</Button>
-                        </Button.Group>
+                        {
+                        !!authToken
+                            ? (
+                                <Button.Group>
+                                    <Button>Sign Up</Button>
+                                    <Button.Or />
+                                    <Button 
+                                        primary
+                                        as={Link}
+                                        to='/login'
+                                    >
+                                        Log In
+                                    </Button>
+                                </Button.Group>
+                            ) : (
+                                <Button
+                                    onClick={() => localStorage.removeItem(AUTH_TOKEN)}
+                                >
+                                    Log Out
+                                </Button>
+                            )
+                        }
                     </Menu.Item>
                 </Menu>
 
                 <Route path="/texts" component={Texts} />
                 <Route path="/translations" component={Translations} />
+                <Route path="/login" component={Login} />
             </Segment>
         )
     }
