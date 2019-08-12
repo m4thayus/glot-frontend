@@ -1,16 +1,30 @@
 import React from "react"
 import { Form, Modal, Segment } from "semantic-ui-react";
-import LoginMutation from "./login-mutation";
+import SignupMutation from "./signup-mutation";
 
-function LoginForm(props){
-    let { username, password, handleChange, handleSubmit } = props
+function SignupForm(props){
+    let { username, password, first_name, last_name, handleChange, handleSubmit } = props
 
     return (
         <React.Fragment>
-            <Modal.Header>Log In</Modal.Header>
+            <Modal.Header>Sign Up</Modal.Header>
             <Modal.Description>
                 <Segment padded='very'>
                     <Form>
+                        <Form.Input
+                            label='First Name'
+                            placeholder='First Name'
+                            name='first_name'
+                            value={first_name}
+                            onChange={handleChange}
+                        />
+                        <Form.Input
+                            label='Last Name'
+                            placeholder='Last Name'
+                            name='last_name'
+                            value={last_name}
+                            onChange={handleChange}
+                        />
                         <Form.Input
                             label='Username'
                             placeholder='Username'
@@ -30,10 +44,11 @@ function LoginForm(props){
                 </Segment>
             </Modal.Description>
             <Modal.Actions>
-                <LoginMutation username={username} password={password} handleSubmit={handleSubmit} />
+                <SignupMutation username={username} password={password} handleSubmit={handleSubmit} />
             </Modal.Actions>
         </React.Fragment>
+    
     )
 }
 
-export default LoginForm
+export default SignupForm

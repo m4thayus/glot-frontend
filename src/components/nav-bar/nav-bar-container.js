@@ -1,9 +1,10 @@
 import React from "react";
-import { Menu, Icon, Button, Segment } from "semantic-ui-react";
+import { Menu, Icon, Button, Segment, Modal } from "semantic-ui-react";
 import { Link, Route } from 'react-router-dom'
 import Texts from '../texts'
 import Translations from '../translations'
 import Login from '../login'
+import Signup from '../signup'
 import { AUTH_TOKEN } from "../../constants";
 
 
@@ -37,25 +38,29 @@ class Navbar extends React.Component {
                         position='right'
                     >
                         {
-                        !!authToken
+                        authToken
                             ? (
-                                <Button.Group>
-                                    <Button>Sign Up</Button>
-                                    <Button.Or />
-                                    <Button 
-                                        primary
-                                        as={Link}
-                                        to='/login'
-                                    >
-                                        Log In
-                                    </Button>
-                                </Button.Group>
-                            ) : (
                                 <Button
                                     onClick={() => localStorage.removeItem(AUTH_TOKEN)}
                                 >
                                     Log Out
                                 </Button>
+                            ) : (
+                                <Button.Group>
+                                    <Modal
+                                        closeIcon
+                                        trigger={<Button>Sign Up</Button>}
+                                    >
+                                        <Signup />
+                                    </Modal>
+                                    <Button.Or />
+                                    <Modal 
+                                        closeIcon
+                                        trigger={<Button primary>Log In</Button>}
+                                    >
+                                        <Login />
+                                    </Modal>
+                                </Button.Group>
                             )
                         }
                     </Menu.Item>

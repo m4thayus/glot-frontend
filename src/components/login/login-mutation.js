@@ -33,6 +33,7 @@ function LoginMutation(props){
                 <Button 
                     type='submit'
                     onClick={mutation}
+                    color='green'
                 >
                     Submit
                 </Button>
