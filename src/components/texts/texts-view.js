@@ -8,7 +8,7 @@ function TextsView(props){
 
     return (
         <Segment raised>
-            <Label ribbon='left' color='blue'>
+            <Label ribbon color='blue'>
                 {word_count} Words
             </Label>
             <Header>{text.title}</Header>
@@ -24,9 +24,9 @@ function TextsView(props){
                     </Item.Extra>
                 </Item.Content>
             </Item>
-                        <Button  fluid>
-                            {text.status}
-                        </Button>
+            <Button fluid>
+                {text.status}
+            </Button>
         </Segment>    
     )
 }
