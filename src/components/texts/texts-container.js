@@ -1,6 +1,6 @@
 import React from "react";
 import TextsView from "./texts-view";
-import { Item, Container } from 'semantic-ui-react'
+import { Item, Container, Pagination } from 'semantic-ui-react'
 
 class TextsContainer extends React.Component {
     render() {
@@ -11,6 +11,7 @@ class TextsContainer extends React.Component {
                 <Item.Group>
                     {texts.map(text => <TextsView key={text.id} text={text} />)}
                 </Item.Group>
+                <Pagination secondary defaultActivePage={1} disabled totalPages={5} />
             </Container>
         )
     }

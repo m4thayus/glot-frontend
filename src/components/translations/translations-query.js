@@ -23,7 +23,7 @@ function TranslationsQuery(props){
             <Dimmer active inverted>
                 <Loader size='large'>Loading</Loader>
             </Dimmer>
-        )
+    )
 
     return (
         <Query query={TRANSLATIONS_QUERY}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Icon, Button } from "semantic-ui-react";
+import { Menu, Icon, Button, Segment } from "semantic-ui-react";
 import { Link, Route } from 'react-router-dom'
 import Texts from '../texts'
 import Translations from '../translations'
@@ -8,8 +8,8 @@ import Translations from '../translations'
 class Navbar extends React.Component {
     render() {
         return (
-            <React.Fragment>
-                <Menu tabular>
+            <Segment>
+                <Menu borderless>
                     <Menu.Item 
                         header
                         as={Link}
@@ -41,7 +41,7 @@ class Navbar extends React.Component {
 
                 <Route path="/texts" component={Texts} />
                 <Route path="/translations" component={Translations} />
-            </React.Fragment>
+            </Segment>
         )
     }
 }
