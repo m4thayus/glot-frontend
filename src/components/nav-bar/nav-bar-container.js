@@ -32,9 +32,9 @@ class Navbar extends React.Component {
                         position='right'
                     >
                         <Button.Group>
-                            <Button size='mini'>Sign Up</Button>
+                            <Button>Sign Up</Button>
                             <Button.Or />
-                            <Button size='mini' primary>Log In</Button>
+                            <Button primary>Log In</Button>
                         </Button.Group>
                     </Menu.Item>
                 </Menu>

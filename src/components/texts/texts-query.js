@@ -10,6 +10,11 @@ const TEXTS_QUERY = gql`
             id
             title 
             content
+            pay
+            status
+            difficulty {
+                description
+            }
             sourceLanguage {
                 name
             }
