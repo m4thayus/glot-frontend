@@ -10,6 +10,16 @@ import { AUTH_TOKEN } from "../../constants";
 
 class Navbar extends React.Component {
 
+    state = {
+        loggedIn: false
+    }
+
+    handleAuth = () => {
+        this.setState({
+            loggedIn: !this.state.loggedIn
+        })
+    }
+
     render() {
         const authToken = localStorage.getItem(AUTH_TOKEN)
 
@@ -41,7 +51,11 @@ class Navbar extends React.Component {
                         authToken
                             ? (
                                 <Button
-                                    onClick={() => localStorage.removeItem(AUTH_TOKEN)}
+                                    // color='red'
+                                    onClick={() => {
+                                        localStorage.removeItem(AUTH_TOKEN)
+                                        this.handleAuth()
+                                    }}
                                 >
                                     Log Out
                                 </Button>
@@ -51,14 +65,14 @@ class Navbar extends React.Component {
                                         closeIcon
                                         trigger={<Button>Sign Up</Button>}
                                     >
-                                        <Signup />
+                                        <Signup handleSignup={this.handleAuth} />
                                     </Modal>
                                     <Button.Or />
                                     <Modal 
                                         closeIcon
                                         trigger={<Button primary>Log In</Button>}
                                     >
-                                        <Login />
+                                        <Login handleLogin={this.handleAuth} />
                                     </Modal>
                                 </Button.Group>
                             )

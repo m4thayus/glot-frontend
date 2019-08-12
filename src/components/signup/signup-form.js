@@ -44,7 +44,13 @@ function SignupForm(props){
                 </Segment>
             </Modal.Description>
             <Modal.Actions>
-                <SignupMutation username={username} password={password} handleSubmit={handleSubmit} />
+                <SignupMutation
+                    username={username}
+                    password={password}
+                    first_name={first_name}
+                    last_name={last_name}
+                    handleSubmit={handleSubmit}
+                />
             </Modal.Actions>
         </React.Fragment>
     

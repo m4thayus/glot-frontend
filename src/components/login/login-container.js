@@ -19,7 +19,7 @@ class LoginContainer extends React.Component {
         this.setState({
             username: '',
             password: ''
-        })
+        }, () => this.props.handleLogin())
     }
 
     saveUserData = token => {

@@ -28,6 +28,7 @@ function LoginMutation(props){
             mutation={LOGIN_MUTATION}
             variables={{ username, password }}
             onCompleted={data => handleSubmit(data)}
+            onError={error => console.log(error)}
         >
             {mutation => (
                 <Button 

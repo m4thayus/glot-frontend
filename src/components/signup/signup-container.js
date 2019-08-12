@@ -20,8 +20,10 @@ class SignupContainer extends React.Component {
         this.saveUserData(userData.token)
         this.setState({
             username: '',
-            password: ''
-        })
+            password: '',
+            first_name: '',
+            last_name: ''
+        }, () => this.props.handleSignup())
     }
 
     saveUserData = token => {
