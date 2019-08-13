@@ -2,8 +2,8 @@ import React from "react";
 import { Menu, Icon, Container } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 import { AUTH_TOKEN } from "../../constants";
-import NavBarAuthView from "./nav-bar-auth-view";
 import NavBarDefaultView from "./nav-bar-default-view";
+import NavBarAuthQuery from "./nav-bar-auth-query";
 
 class Navbar extends React.Component {
 
@@ -28,7 +28,7 @@ class Navbar extends React.Component {
                     </Menu.Item>
                     { authToken
                         ? 
-                            <NavBarAuthView handleAuth={this.handleAuth} /> 
+                            <NavBarAuthQuery handleAuth={this.handleAuth} /> 
                         :
                             <NavBarDefaultView handleAuth={this.handleAuth} />
                     }

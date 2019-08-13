@@ -1,10 +1,10 @@
 import React from "react"
-import { Menu, Button } from "semantic-ui-react";
+import { Menu, Button, Icon } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 import { AUTH_TOKEN } from "../../constants";
 
 function NavBarAuthView(props){
-    let { handleAuth } = props
+    let { user, handleAuth } = props
     return (
         <React.Fragment>
             <Menu.Item
@@ -20,7 +20,7 @@ function NavBarAuthView(props){
             <Menu.Item position='right'>
                 <Button.Group>
                     <Button primary>
-                        My Profile
+                        <Icon name='user outline' />{user.firstName}
                     </Button>
                     <Button
                         onClick={() => {
