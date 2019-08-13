@@ -1,10 +1,13 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 import DashboardView from "./dashboard-view";
 
 class DashboardContainer extends React.Component {
     render() {
         return (
-           <DashboardView /> 
+            <Container>
+                <DashboardView /> 
+            </Container>
         )
     }
 }
