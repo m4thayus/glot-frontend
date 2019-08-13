@@ -1,11 +1,11 @@
 import React from "react";
-import { Menu, Icon, Button, Segment, Modal } from "semantic-ui-react";
+import { Menu, Icon, Segment } from "semantic-ui-react";
 import { Link, Route } from 'react-router-dom'
+import { AUTH_TOKEN } from "../../constants";
+import NavBarAuthView from "./nav-bar-auth-view";
+import NavBarDefaultView from "./nav-bar-default-view";
 import Texts from '../texts'
 import Translations from '../translations'
-import Login from '../login'
-import Signup from '../signup'
-import { AUTH_TOKEN } from "../../constants";
 
 
 class Navbar extends React.Component {
@@ -34,57 +34,13 @@ class Navbar extends React.Component {
                         <Icon name='flag' />
                         glot
                     </Menu.Item>
-                    <Menu.Item
-                        name='texts'
-                        as={Link}
-                        to='/texts'
-                    />
-                    <Menu.Item
-                        name='translations'
-                        as={Link}
-                        to='/translations'
-                    />
-                    <Menu.Item 
-                        position='right'
-                    >
-                        {
-                        authToken
-                            ? (
-                                <Button.Group>
-                                    <Button primary>
-                                        My Profile
-                                    </Button>
-                                    <Button
-                                    // color='red'
-                                        onClick={() => {
-                                            localStorage.removeItem(AUTH_TOKEN)
-                                            this.handleAuth()
-                                        }}
-                                    >
-                                        Log Out
-                                    </Button>
-                                </Button.Group>
-                            ) : (
-                                <Button.Group>
-                                    <Modal
-                                        closeIcon
-                                        trigger={<Button>Sign Up</Button>}
-                                    >
-                                        <Signup handleSignup={this.handleAuth} />
-                                    </Modal>
-                                    <Button.Or />
-                                    <Modal 
-                                        closeIcon
-                                        trigger={<Button primary>Log In</Button>}
-                                    >
-                                        <Login handleLogin={this.handleAuth} />
-                                    </Modal>
-                                </Button.Group>
-                            )
-                        }
-                    </Menu.Item>
+                    { authToken
+                        ? 
+                            <NavBarAuthView handleAuth={this.handleAuth} /> 
+                        :
+                            <NavBarDefaultView handleAuth={this.handleAuth} />
+                    }
                 </Menu>
-
                 <Route path="/texts" component={Texts} />
                 <Route path="/translations" component={Translations} />
             </Segment>
