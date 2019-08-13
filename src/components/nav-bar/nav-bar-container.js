@@ -1,12 +1,9 @@
 import React from "react";
-import { Menu, Icon, Segment } from "semantic-ui-react";
-import { Link, Route } from 'react-router-dom'
+import { Menu, Icon, Container } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 import { AUTH_TOKEN } from "../../constants";
 import NavBarAuthView from "./nav-bar-auth-view";
 import NavBarDefaultView from "./nav-bar-default-view";
-import Texts from '../texts'
-import Translations from '../translations'
-
 
 class Navbar extends React.Component {
 
@@ -24,15 +21,14 @@ class Navbar extends React.Component {
         const authToken = localStorage.getItem(AUTH_TOKEN)
 
         return (
-            <Segment>
+            <Container>
                 <Menu borderless>
                     <Menu.Item 
                         header
                         as={Link}
                         to='/'
                     >
-                        <Icon name='flag' />
-                        glot
+                        <Icon name='flag' /> glot
                     </Menu.Item>
                     { authToken
                         ? 
@@ -41,9 +37,7 @@ class Navbar extends React.Component {
                             <NavBarDefaultView handleAuth={this.handleAuth} />
                     }
                 </Menu>
-                <Route path="/texts" component={Texts} />
-                <Route path="/translations" component={Translations} />
-            </Segment>
+            </Container>
         )
     }
 }

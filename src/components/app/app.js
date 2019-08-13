@@ -1,14 +1,22 @@
 import React from 'react';
 // import logo from '../assets/images/logo.svg';
 import './app.css';
-import { BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Segment, Divider } from 'semantic-ui-react';
 import NavBar from '../nav-bar'
+import Texts from '../texts'
+import Translations from '../translations'
 
 function App() {
     return (
         <React.Fragment>
             <Router>
-                <NavBar />
+                <Segment>
+                    <NavBar />
+                    <Divider horizontal />
+                    <Route path="/texts" component={Texts} />
+                    <Route path="/translations" component={Translations} />
+                </Segment>
             </Router>
         </React.Fragment>
     );
