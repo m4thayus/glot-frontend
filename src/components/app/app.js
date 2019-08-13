@@ -7,17 +7,22 @@ import NavBar from '../nav-bar'
 import Home from '../home'
 import Texts from '../texts'
 import Translations from '../translations'
+import Login from '../login'
+import Dashboard from '../dashboard'
+import { AUTH_TOKEN } from '../../constants';
 
 function App() {
+    const authToken = localStorage.getItem(AUTH_TOKEN)
+
     return (
         <React.Fragment>
             <Router>
                 <Segment>
                     <NavBar />
                     <Divider horizontal />
-                    <Route exact path="/" component={Home} />
-                    <Route path="/texts" component={Texts} />
-                    <Route path="/translations" component={Translations} />
+                    <Route exact path="/" component={authToken ? Dashboard : Home} />
+                    <Route path="/texts" component={authToken ? Texts : Login} />
+                    <Route path="/translations" component={authToken ? Translations : Login} />
                 </Segment>
             </Router>
         </React.Fragment>
