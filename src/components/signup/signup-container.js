@@ -17,13 +17,17 @@ class SignupContainer extends React.Component {
     }
 
     handleSubmit = userData => {
-        this.saveUserData(userData.token)
-        this.setState({
-            username: '',
-            password: '',
-            first_name: '',
-            last_name: ''
-        }, () => this.props.handleSignup())
+        if (userData.createUser) {
+            this.saveUserData(userData.createUser.token)
+            this.setState({
+                username: '',
+                password: '',
+                first_name: '',
+                last_name: ''
+            }, () => this.props.handleSignup(true))
+        } else {
+            window.alert("Invalid registration")
+        }
     }
 
     saveUserData = token => {

@@ -25,7 +25,7 @@ function NavBarAuthView(props){
                     <Button
                         onClick={() => {
                             localStorage.removeItem(AUTH_TOKEN)
-                            handleAuth()
+                            handleAuth(true)
                         }}
                         as={Link}
                         to='/'

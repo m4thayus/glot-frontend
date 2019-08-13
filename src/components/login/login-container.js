@@ -15,11 +15,15 @@ class LoginContainer extends React.Component {
     }
 
     handleSubmit = userData => {
-        this.saveUserData(userData.token)
-        this.setState({
-            username: '',
-            password: ''
-        }, () => this.props.handleLogin())
+        if (userData.loginUser) {
+            this.saveUserData(userData.loginUser.token)
+            this.setState({
+                username: '',
+                password: ''
+            }, () => this.props.handleLogin(true))
+        } else {
+            window.alert("Invalid username/password")
+        }
     }
 
     saveUserData = token => {

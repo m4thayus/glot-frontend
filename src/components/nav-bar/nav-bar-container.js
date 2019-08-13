@@ -11,10 +11,12 @@ class Navbar extends React.Component {
         loggedIn: false
     }
 
-    handleAuth = () => {
-        this.setState({
-            loggedIn: !this.state.loggedIn
-        })
+    handleAuth = authSuccessful => {
+        if (authSuccessful) {
+            this.setState({
+                loggedIn: !this.state.loggedIn
+            })
+        }
     }
 
     render() {
