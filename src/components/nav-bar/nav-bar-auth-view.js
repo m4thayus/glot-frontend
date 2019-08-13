@@ -8,7 +8,7 @@ function NavBarAuthView(props){
     return (
         <React.Fragment>
             <Menu.Item
-                name='texts'
+                name='Browse Texts'
                 as={Link}
                 to='/texts'
             />
