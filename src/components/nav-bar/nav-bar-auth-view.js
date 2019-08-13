@@ -27,8 +27,6 @@ function NavBarAuthView(props){
                             localStorage.removeItem(AUTH_TOKEN)
                             handleAuth(true)
                         }}
-                        as={Link}
-                        to='/'
                     >
                         Log Out
                     </Button>

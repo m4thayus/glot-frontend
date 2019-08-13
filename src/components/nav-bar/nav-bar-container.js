@@ -7,15 +7,9 @@ import NavBarDefaultView from "./nav-bar-default-view";
 
 class Navbar extends React.Component {
 
-    state = {
-        loggedIn: false
-    }
-
     handleAuth = authSuccessful => {
         if (authSuccessful) {
-            this.setState({
-                loggedIn: !this.state.loggedIn
-            })
+            this.props.history.push('/')
         }
     }
 
