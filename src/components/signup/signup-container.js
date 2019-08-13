@@ -26,7 +26,7 @@ class SignupContainer extends React.Component {
                 last_name: ''
             }, () => this.props.handleSignup(true))
         } else {
-            window.alert("Username already exists")
+            window.alert("Invalid registration")
         }
     }
 
