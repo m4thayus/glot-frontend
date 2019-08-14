@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 import TranslationFormView from "./translation-form-view";
 
 class TranslationFormContainer extends React.Component {
@@ -20,13 +21,15 @@ class TranslationFormContainer extends React.Component {
     render() {
         let { title, content } = this.state
         return (
-            <TranslationFormView
-                title={title}
-                content={content}
-                text_id={this.props.text_id}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-            />
+            <Container>
+                <TranslationFormView
+                    title={title}
+                    content={content}
+                    text_id={this.props.text_id}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                />
+            </Container>
         )
     }
 }

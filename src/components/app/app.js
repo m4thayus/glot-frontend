@@ -19,9 +19,9 @@ function App(props) {
             <NavBar history={props.history} />
             <Divider horizontal />
             <Route exact path="/" component={authToken ? Dashboard : Home} />
-            <Route path="/texts" component={authToken ? Texts : Home} />
+            <Route exact path="/texts" component={authToken ? Texts : Home} />
             <Route exact path="/translations" component={authToken ? Translations : Home} />
-            <Route path="/translations/new" component={authToken ? TranslationForm : Home} />
+            <Route path="/texts/:id" component={authToken ? TranslationForm : Home} />
         </Segment>
     );
 }

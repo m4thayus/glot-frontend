@@ -28,7 +28,7 @@ function TextsView(props){
             <Button 
                 fluid
                 as={Link}
-                to='/translations/new'
+                to={'/texts/' + text.id}
             >
                 {text.status}
             </Button>
