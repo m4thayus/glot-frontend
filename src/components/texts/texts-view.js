@@ -1,5 +1,6 @@
 import React from "react"
 import { Item, Segment, Button, Label, Divider, Header } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 function TextsView(props){
     let { text } = props
@@ -24,7 +25,11 @@ function TextsView(props){
                     </Item.Extra>
                 </Item.Content>
             </Item>
-            <Button fluid>
+            <Button 
+                fluid
+                as={Link}
+                to='/translations/new'
+            >
                 {text.status}
             </Button>
         </Segment>    
