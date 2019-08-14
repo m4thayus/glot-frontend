@@ -12,9 +12,6 @@ const LOGIN_MUTATION = gql`
         }) 
         {
             token
-            user {
-                id
-            }
         }
     }
 `

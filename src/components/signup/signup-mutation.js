@@ -16,9 +16,6 @@ const SIGNUP_MUTATION = gql`
             }
         ) {
             token
-            user {
-                id
-            }
         }
     }
 `

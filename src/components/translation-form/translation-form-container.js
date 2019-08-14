@@ -3,13 +3,13 @@ import TranslationFormView from "./translation-form-view";
 
 class TranslationFormContainer extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            title: props.translation.title,
-            content: props.translation.content
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         title: props.translation.title,
+    //         content: props.translation.content
+    //     }
+    // }
     
     handleChange = event => {
         this.setState({
@@ -23,6 +23,7 @@ class TranslationFormContainer extends React.Component {
             <TranslationFormView
                 title={title}
                 content={content}
+                text_id={this.props.text_id}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
             />
