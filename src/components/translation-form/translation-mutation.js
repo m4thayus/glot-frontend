@@ -8,7 +8,7 @@ const TRANSLATION_MUTATION = gql`
         createTranslation(
             title: $title
             content: $content
-            text_id: $text_id
+            textId: $text_id
         ) {
             title
             content

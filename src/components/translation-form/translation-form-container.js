@@ -6,9 +6,16 @@ class TranslationFormContainer extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            title: '',
-            content: ''
+        if (props.translation) {
+            this.state = {
+                title: props.translation.title,
+                content: props.translation.content
+            }
+        } else {
+            this.state = {
+                title: '',
+                content: ''
+            }
         }
     }
     

@@ -1,1 +1,1 @@
-export { default } from './translation-form-container.js'
+export { default } from './translation-form-query.js'
