@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
+import { withRouter } from "react-router-dom"
 import TranslationFormView from "./translation-form-view";
 
 class TranslationFormContainer extends React.Component {
@@ -25,6 +26,10 @@ class TranslationFormContainer extends React.Component {
         })
     }
 
+    handleSubmit = () => {
+        this.props.history.push('/')
+    }
+
     render() {
         let { title, content } = this.state
         return (
@@ -41,4 +46,4 @@ class TranslationFormContainer extends React.Component {
     }
 }
 
-export default TranslationFormContainer
+export default withRouter(TranslationFormContainer)
