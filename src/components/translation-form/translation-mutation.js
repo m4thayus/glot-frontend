@@ -2,6 +2,7 @@ import React from "react"
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Button } from "semantic-ui-react";
+import {TRANSLATIONS_QUERY} from "../translations/translations-query";
 
 const TRANSLATION_MUTATION = gql`
     mutation TranslationMutation($title: String!, $content: String!, $text_id: Int!) {
@@ -13,13 +14,12 @@ const TRANSLATION_MUTATION = gql`
             id
             title 
             content
+            status
+            votes {
+                up
+            }
         }
 
-    }
-`
-const GET_TRANSLATIONS_FROM_CACHE = gql`
-    query GetTranslations {
-        translations
     }
 `
 
@@ -29,16 +29,10 @@ function TranslationMutation(props){
     return (
         <Mutation
             mutation={TRANSLATION_MUTATION}
+            refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
             variables={{ title, content, text_id }}
             onCompleted={data => handleSubmit(data)}
             onError={error => console.log(error)}
-            // update={(cache, { data: { addTranslation } }) => {
-            //     const { translations } = cache.readQuery({ query: GET_TRANSLATIONS_FROM_CACHE });
-                // cache.writeQuery({
-                //     query: GET_TRANSLATIONS_FROM_CACHE,
-                //     data: { translations: translations.concat([addTranslation]) },
-                // });
-            // }}
         >
             {mutation => (
                 <Button 
