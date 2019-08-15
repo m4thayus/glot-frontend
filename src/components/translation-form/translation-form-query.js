@@ -26,18 +26,18 @@ function TranslationFormQuery(props){
 
     return (
         <Query query={TRANSLATION_FORM_QUERY} variables={{ text_id }}>
-        {({ loading, error, data }) => {
-            if (loading) return loader
-            if (error) return (
-                <React.Fragment>
-                    {console.log(error)}
-                    {loader}
-                </React.Fragment>
-            )
-            let translation = data.translations ? data.translations[0] : null 
-            return <TranslationFormContainer translation={translation} text_id={text_id} />
-        }}
-    </Query> 
+            {({ loading, error, data }) => {
+                if (loading) return loader
+                if (error) return (
+                    <React.Fragment>
+                        {console.log(error)}
+                        {loader}
+                    </React.Fragment>
+                )
+                let translation = data.translations ? data.translations[0] : null 
+                return <TranslationFormContainer translation={translation} text_id={text_id} />
+            }}
+        </Query> 
     )
 }
 

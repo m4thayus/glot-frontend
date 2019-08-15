@@ -27,7 +27,7 @@ class TranslationFormContainer extends React.Component {
     }
 
     handleSubmit = () => {
-        this.props.history.push('/')
+        this.props.history.push('/translations')
     }
 
     render() {

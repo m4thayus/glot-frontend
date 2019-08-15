@@ -10,10 +10,16 @@ const TRANSLATION_MUTATION = gql`
             content: $content
             textId: $text_id
         ) {
-            title
+            id
+            title 
             content
         }
 
+    }
+`
+const GET_TRANSLATIONS_FROM_CACHE = gql`
+    query GetTranslations {
+        translations
     }
 `
 
@@ -26,6 +32,13 @@ function TranslationMutation(props){
             variables={{ title, content, text_id }}
             onCompleted={data => handleSubmit(data)}
             onError={error => console.log(error)}
+            // update={(cache, { data: { addTranslation } }) => {
+            //     const { translations } = cache.readQuery({ query: GET_TRANSLATIONS_FROM_CACHE });
+                // cache.writeQuery({
+                //     query: GET_TRANSLATIONS_FROM_CACHE,
+                //     data: { translations: translations.concat([addTranslation]) },
+                // });
+            // }}
         >
             {mutation => (
                 <Button 

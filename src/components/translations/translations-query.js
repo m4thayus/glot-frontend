@@ -15,8 +15,8 @@ const TRANSLATIONS_QUERY = gql`
                 up
             }
         }
-  }
-`
+    }
+ `
 
 function TranslationsQuery(props){
     const loader = (
@@ -26,18 +26,18 @@ function TranslationsQuery(props){
     )
 
     return (
-        <Query query={TRANSLATIONS_QUERY}>
-        {({ loading, error, data }) => {
-            if (loading) return loader
-            if (error) return (
-                <React.Fragment>
-                    {console.log(error)}
-                    {loader}
-                </React.Fragment>
-            )
-            return <TranslationsContainer translations={data.translations}/>
-        }}
-    </Query> 
+        <Query query={TRANSLATIONS_QUERY} fetchPolicy={'cache-and-network'}>
+            {({ loading, error, data }) => {
+                if (loading) return loader
+                if (error) return (
+                    <React.Fragment>
+                        {console.log(error)}
+                        {loader}
+                    </React.Fragment>
+                )
+                return <TranslationsContainer translations={data.translations}/>
+            }}
+        </Query> 
     )
 }
 
