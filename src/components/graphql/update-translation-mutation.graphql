@@ -1,0 +1,17 @@
+mutation updateTranslationMutation($id: Int!, $title: String!, $content: String!, $text_id: Int!, $status: String!) {
+    updateTranslation(
+        id: $id
+        title: $title
+        content: $content
+        textId: $text_id
+        status: $status
+    ) {
+        id
+        title 
+        content
+        status
+        votes {
+            up
+        }
+    }
+}

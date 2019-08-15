@@ -3,5 +3,6 @@ query Translation($text_id: Int!){
         id
         title 
         content
+        status
     }
 }

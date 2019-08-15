@@ -3,7 +3,7 @@ import { Form, TextArea, Divider } from "semantic-ui-react";
 import TranslationMutation from "./translation-mutation";
 
 function TranslationFormView(props){
-    let { title, content, text_id, handleChange, handleSubmit } = props
+    let { translation_id, title, content, text_id, status, handleChange, handleSubmit } = props
     return (
         <Form>
             <Form.Input
@@ -20,9 +20,11 @@ function TranslationFormView(props){
             />
             <Divider horizontal />
             <TranslationMutation 
+                translation_id={translation_id}
                 title={title}
                 content={content}
                 text_id={text_id}
+                status={status}
                 handleSubmit={handleSubmit}
             />
         </Form> 

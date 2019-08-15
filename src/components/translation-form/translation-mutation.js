@@ -3,17 +3,27 @@ import { Mutation } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const TRANSLATION_MUTATION = loader('../graphql/create-translation-mutation.graphql');
+const CREATE_TRANSLATION_MUTATION = loader('../graphql/create-translation-mutation.graphql');
+const UPDATE_TRANSLATION_MUTATION = loader('../graphql/update-translation-mutation.graphql');
 const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
 
 function TranslationMutation(props){
-    let { title, content, text_id, handleSubmit } = props
+    let { translation_id, title, content, text_id, status, handleSubmit } = props
+
+    let mutation = CREATE_TRANSLATION_MUTATION
+    let variables =  { title, content, text_id }
+
+    if (translation_id) {
+        let id = parseInt(translation_id, 10)
+        mutation = UPDATE_TRANSLATION_MUTATION
+        variables = { id, title, content, text_id, status }
+    }
 
     return (
         <Mutation
-            mutation={TRANSLATION_MUTATION}
+            mutation={mutation}
             refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
-            variables={{ title, content, text_id }}
+            variables={variables}
             onCompleted={data => handleSubmit(data)}
             onError={error => console.log(error)}
         >

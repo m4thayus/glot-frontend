@@ -32,12 +32,16 @@ class TranslationFormContainer extends React.Component {
 
     render() {
         let { title, content } = this.state
+        let translation_id = this.props.translation ? this.props.translation.id : null
+        let status = this.props.translation ? this.props.translation.status : null
         return (
             <Container>
                 <TranslationFormView
+                    translation_id={translation_id}
                     title={title}
                     content={content}
                     text_id={this.props.text_id}
+                    status={status}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                 />
