@@ -33,18 +33,18 @@ function TextsQuery(props){
     )
 
     return (
-        <Query query={TEXTS_QUERY}>
-        {({ loading, error, data }) => {
-            if (loading) return loader
-            if (error) return (
-                <React.Fragment>
-                    {console.log(error)}
-                    {loader}
-                </React.Fragment>
-            )
-            return <TextsContainer texts={data.texts}/>
-        }}
-    </Query> 
+        <Query query={TEXTS_QUERY} fetchPolicy={'cache-and-network'}>
+            {({ loading, error, data }) => {
+                if (loading) return loader
+                if (error) return (
+                    <React.Fragment>
+                        {console.log(error)}
+                        {loader}
+                    </React.Fragment>
+                )
+                return <TextsContainer texts={data.texts}/>
+            }}
+        </Query> 
     )
 }
 
