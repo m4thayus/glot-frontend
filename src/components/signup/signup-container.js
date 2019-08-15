@@ -24,7 +24,7 @@ class SignupContainer extends React.Component {
                 password: '',
                 first_name: '',
                 last_name: ''
-            }, () => this.props.handleSignup(true))
+            }, () => this.props.handleSignup())
         } else {
             window.alert("Invalid registration")
         }

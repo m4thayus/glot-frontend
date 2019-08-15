@@ -20,7 +20,7 @@ class LoginContainer extends React.Component {
             this.setState({
                 username: '',
                 password: ''
-            }, () => this.props.handleLogin(true))
+            }, () => this.props.handleLogin())
         } else {
             window.alert("Invalid username/password")
         }

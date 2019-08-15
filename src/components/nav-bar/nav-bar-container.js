@@ -7,15 +7,12 @@ import NavBarAuthQuery from "./nav-bar-auth-query";
 
 class Navbar extends React.Component {
 
-    handleAuth = authSuccessful => {
-        if (authSuccessful) {
-            this.props.history.push('/')
-        }
+    handleAuth = () => {
+        this.props.history.push('/')
     }
 
     render() {
         const authToken = localStorage.getItem(AUTH_TOKEN)
-
         return (
             <Container>
                 <Menu borderless>

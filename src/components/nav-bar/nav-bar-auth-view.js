@@ -1,4 +1,5 @@
 import React from "react"
+import { withApollo } from 'react-apollo'
 import { Menu, Button, Icon } from "semantic-ui-react";
 import { Link } from 'react-router-dom'
 import { AUTH_TOKEN } from "../../constants";
@@ -25,7 +26,8 @@ function NavBarAuthView(props){
                     <Button
                         onClick={() => {
                             localStorage.removeItem(AUTH_TOKEN)
-                            handleAuth(true)
+                            props.client.resetStore()
+                            handleAuth()
                         }}
                     >
                         Log Out
@@ -36,4 +38,4 @@ function NavBarAuthView(props){
     )
 }
 
-export default NavBarAuthView
+export default withApollo(NavBarAuthView)
