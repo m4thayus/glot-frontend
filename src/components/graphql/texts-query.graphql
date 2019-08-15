@@ -1,0 +1,19 @@
+
+{
+    texts {
+        id
+        title 
+        content
+        pay
+        status
+        difficulty {
+            description
+        }
+        sourceLanguage {
+            name
+        }
+        targetLanguage {
+            name
+        }
+    }
+}

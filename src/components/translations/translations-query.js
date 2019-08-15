@@ -1,22 +1,10 @@
 import React from "react"
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import TranslationsContainer from "./translations-container";
 
-const TRANSLATIONS_QUERY = gql`
-    {
-        translations {
-            id
-            title 
-            content
-            status
-            votes {
-                up
-            }
-        }
-    }
- `
+const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
 
 function TranslationsQuery(props){
     const loader = (

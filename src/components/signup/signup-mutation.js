@@ -1,31 +1,16 @@
 import React from "react"
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const SIGNUP_MUTATION = gql`
-    mutation CreateUserMutation($username: String!, $password: String!, $first_name: String!, $last_name: String!) {
-        createUser(
-            firstName: $first_name,
-            lastName: $last_name,
-            authProvider: {
-                username: {
-                    username: $username,
-                    password: $password
-                }
-            }
-        ) {
-            token
-        }
-    }
-`
+const CREATE_USER_MUTATION = loader('../graphql/create-user-mutation.graphql');
 
 function SignupMutation(props){
     let { username, password, first_name, last_name, handleSubmit } = props
 
     return (
         <Mutation
-            mutation={SIGNUP_MUTATION}
+            mutation={CREATE_USER_MUTATION}
             variables={{ username, password, first_name, last_name }}
             onCompleted={data => handleSubmit(data)}
             onError={error => console.log(error)}

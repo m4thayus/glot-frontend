@@ -1,27 +1,10 @@
 import React from "react"
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
-import {TRANSLATIONS_QUERY} from "../translations/translations-query";
 
-const TRANSLATION_MUTATION = gql`
-    mutation TranslationMutation($title: String!, $content: String!, $text_id: Int!) {
-        createTranslation(
-            title: $title
-            content: $content
-            textId: $text_id
-        ) {
-            id
-            title 
-            content
-            status
-            votes {
-                up
-            }
-        }
-
-    }
-`
+const TRANSLATION_MUTATION = loader('../graphql/create-translation-mutation.graphql');
+const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
 
 function TranslationMutation(props){
     let { title, content, text_id, handleSubmit } = props

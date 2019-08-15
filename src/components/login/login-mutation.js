@@ -1,20 +1,9 @@
 import React from "react"
 import { Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const LOGIN_MUTATION = gql`
-    mutation LoginUserMutation($username: String!, $password: String!) {
-        loginUser(
-            username: {
-                username: $username,
-                password: $password
-        }) 
-        {
-            token
-        }
-    }
-`
+const LOGIN_USER_MUTATION = loader('../graphql/login-user-mutation.graphql');
 
 function LoginMutation(props){
 
@@ -22,7 +11,7 @@ function LoginMutation(props){
 
     return (
         <Mutation
-            mutation={LOGIN_MUTATION}
+            mutation={LOGIN_USER_MUTATION}
             variables={{ username, password }}
             onCompleted={data => handleSubmit(data)}
             onError={error => console.log(error)}

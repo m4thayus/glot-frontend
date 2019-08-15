@@ -1,17 +1,10 @@
 import React from "react"
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import NavBarAuthView from "./nav-bar-auth-view";
 
-const USER_QUERY = gql`
-    {
-        me {
-            firstName
-            lastName
-        }
-  }
-`
+const USER_QUERY =  loader('../graphql/user-query.graphql');
 
 
 function NavBarAuthQuery(props){

@@ -1,0 +1,12 @@
+
+{
+    translations {
+        id
+        title 
+        content
+        status
+        votes {
+            up
+        }
+    }
+}

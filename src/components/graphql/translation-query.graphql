@@ -1,0 +1,7 @@
+query Translation($text_id: Int!){
+    translations(textId: $text_id) {
+        id
+        title 
+        content
+    }
+}

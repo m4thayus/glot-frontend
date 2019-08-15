@@ -1,0 +1,14 @@
+mutation CreateUserMutation($username: String!, $password: String!, $first_name: String!, $last_name: String!) {
+    createUser(
+        firstName: $first_name,
+        lastName: $last_name,
+        authProvider: {
+            username: {
+                username: $username,
+                password: $password
+            }
+        }
+    ) {
+        token
+    }
+}
