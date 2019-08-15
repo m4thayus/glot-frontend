@@ -10,6 +10,7 @@ class TextsContainer extends React.Component {
             { menuItem: 'Tab 2', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
             { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
         ]
+        console.log(panes)
         return (
             <Container>
                 {/* <Tab menu={{ fluid: true, vertical: true, tabular: true }} panes={panes} /> */}
