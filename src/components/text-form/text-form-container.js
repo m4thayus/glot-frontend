@@ -1,6 +1,7 @@
 import React from "react";
 import TextFormView from "./text-form-view";
 import { Container } from "semantic-ui-react";
+import { withRouter } from "react-router-dom"
 
 class TextFormContainer extends React.Component {
     constructor(props) {
@@ -29,19 +30,14 @@ class TextFormContainer extends React.Component {
 
     handleDiffChange = event => {
         let lang = this.state.source_language
-        console.log(lang)
-        if (lang !== "") {
-            this.setState({
-                difficulty: lang.difficulties.find(diff => diff.level === event.target.value)
-            })
-        }
-        console.log(this.state.difficulty)
+        this.setState({
+            difficulty: lang.difficulties.find(diff => diff.description === event.target.value)
+        })
     }
 
     handleIntChange = event => {
         let val = event.target.value
         val = +val
-        console.log(+val)
         if (isNaN(val) || val <= 0){
             this.setState({
                 [event.target.name]: ""
@@ -59,7 +55,6 @@ class TextFormContainer extends React.Component {
 
     render() {
         let { title, content, pay, source_language, target_language, difficulty } = this.state
-        console.log(this.props.languages)
         return (
             <Container>
                 <TextFormView 
@@ -81,4 +76,4 @@ class TextFormContainer extends React.Component {
     }
 }
 
-export default TextFormContainer
+export default withRouter(TextFormContainer)

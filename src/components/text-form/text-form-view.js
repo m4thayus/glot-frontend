@@ -42,7 +42,7 @@ function TextFormView(props){
                         onChange={handleDiffChange}
                     />
                         <datalist id='difficulties'>
-                            {source_language.difficulties.map(difficulty => <option key={difficulty.id} value={difficulty.level} />)}
+                            {source_language.difficulties.map(difficulty => <option key={difficulty.id} value={difficulty.description} />)}
                         </datalist>
                     </React.Fragment>
                     :

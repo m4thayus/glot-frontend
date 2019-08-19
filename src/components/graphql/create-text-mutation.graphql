@@ -8,10 +8,10 @@ mutation CreateTextMutation(
         createText(
             title: $title
             content: $content
-            textId: $pay
+            pay: $pay
             sourceLanguageId: $source_language_id
             targetLanguageId: $target_language_id
-            difficulty_id: $difficulty_id
+            difficultyId: $difficulty_id
         ) {
             id
             title 
