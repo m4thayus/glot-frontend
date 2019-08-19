@@ -1,9 +1,25 @@
 import React from "react"
-import { Form, TextArea, Divider, Segment, Label } from "semantic-ui-react";
+import { Form, TextArea, Divider, Segment, Label} from "semantic-ui-react";
 import TextMutation from "./text-mutation";
 
 function TextFormView(props){
     let {languages, title, content, pay, source_language, target_language, difficulty, handleChange, handleIntChange, handleLangChange, handleDiffChange, handleSubmit } = props
+
+    let languageOptions = languages.map(language => {
+        let id = language.id
+        let text = language.name
+        return {key: id, text: text, value: language.name}
+    })
+
+    let difficultyOptions = [{}]
+    if (source_language) {
+        difficultyOptions = source_language.difficulties.map(difficulty => {
+            let id = difficulty.id 
+            let text = difficulty.description
+            return {key: id, text: text, value: difficulty.description}
+        })
+    }
+
     return (
         <Segment>
             <Form>
@@ -13,38 +29,38 @@ function TextFormView(props){
                     value={title}
                     onChange={handleChange}
                 />
-                <Form.Input 
-                    list='source_languages'
-                    name='source_language'
-                    placeholder='Choose source language...'
-                    onChange={handleLangChange}
-                />
-                    <datalist id='source_languages'>
-                        {languages.map(language => <option key={language.id} value={language.name} />)}
-                    </datalist>
-                <Form.Input 
-                    list='target_languages'
-                    name='target_language'
-                    placeholder='Choose target language...'
-                    onChange={handleLangChange}
-                />
-                    <datalist id='target_languages'>
-                        {languages.map(language => <option key={language.id} value={language.name} />)}
-                    </datalist>
+                <Form.Group widths='equal'>
+                    <Form.Dropdown
+                        name='source_language'
+                        placeholder='Choose source language...'
+                        text={source_language.name}
+                        options={languageOptions}
+                        search
+                        selection
+                        onChange={handleLangChange}
+                    />
+                    <Form.Dropdown
+                        name='target_language'
+                        placeholder='Choose target language...'
+                        text={target_language.name}
+                        options={languageOptions}
+                        search
+                        selection
+                        onChange={handleLangChange}
+                    />
+                </Form.Group>
                 {
                     source_language 
                     ? 
-                    <React.Fragment>
-                    <Form.Input 
-                        list='difficulties'
+                    <Form.Dropdown 
                         name='difficulty'
                         placeholder='Choose a difficulty...'
+                        text={difficulty.description}
+                        options={difficultyOptions}
+                        search
+                        selection
                         onChange={handleDiffChange}
                     />
-                        <datalist id='difficulties'>
-                            {source_language.difficulties.map(difficulty => <option key={difficulty.id} value={difficulty.description} />)}
-                        </datalist>
-                    </React.Fragment>
                     :
                     null
                 }

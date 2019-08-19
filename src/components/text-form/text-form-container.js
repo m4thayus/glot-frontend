@@ -22,16 +22,18 @@ class TextFormContainer extends React.Component {
         })
     }
 
-    handleLangChange = event => {
+    handleLangChange = (event, data) => {
+        console.log(data.name)
         this.setState({
-            [event.target.name]: this.props.languages.find(language => language.name === event.target.value)
+            [data.name]: this.props.languages.find(language => language.name === data.value)
         })
     }
 
-    handleDiffChange = event => {
+    handleDiffChange = (event, data) => {
+        console.log(data)
         let lang = this.state.source_language
         this.setState({
-            difficulty: lang.difficulties.find(diff => diff.description === event.target.value)
+            [data.name]: lang.difficulties.find(diff => diff.description === data.value)
         })
     }
 
