@@ -1,1 +1,1 @@
-export { default } from './text-form-container.js'
+export { default } from './text-form-query.js'

@@ -9,8 +9,8 @@ mutation CreateTextMutation(
             title: $title
             content: $content
             textId: $pay
-            source_language_id: $source_language_id
-            target_language_id: $target_language_id
+            sourceLanguageId: $source_language_id
+            targetLanguageId: $target_language_id
             difficulty_id: $difficulty_id
         ) {
             id

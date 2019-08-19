@@ -1,11 +1,11 @@
 import React from "react"
-import { Form, TextArea, Divider } from "semantic-ui-react";
+import { Form, TextArea, Divider, Segment, Label } from "semantic-ui-react";
 import TextMutation from "./text-mutation";
 
 function TextFormView(props){
-    let {title, content, pay, source_language_id, target_language_id, difficulty_id, handleChange, handleSubmit } = props
+    let {languages, title, content, pay, source_language, target_language, difficulty, handleChange, handleIntChange, handleLangChange, handleDiffChange, handleSubmit } = props
     return (
-        <React.Fragment>
+        <Segment>
             <Form>
                 <Form.Input
                     placeholder='Title'
@@ -13,13 +13,53 @@ function TextFormView(props){
                     value={title}
                     onChange={handleChange}
                 />
-                <Form.Input
-                    placeholder='How much will you pay?'
+                <Form.Input 
+                    list='source_languages'
+                    name='source_language'
+                    placeholder='Choose source language...'
+                    onChange={handleLangChange}
+                />
+                    <datalist id='source_languages'>
+                        {languages.map(language => <option key={language.id} value={language.name} />)}
+                    </datalist>
+                <Form.Input 
+                    list='target_languages'
+                    name='target_language'
+                    placeholder='Choose target language...'
+                    onChange={handleLangChange}
+                />
+                    <datalist id='target_languages'>
+                        {languages.map(language => <option key={language.id} value={language.name} />)}
+                    </datalist>
+                {
+                    source_language 
+                    ? 
+                    <React.Fragment>
+                    <Form.Input 
+                        list='difficulties'
+                        name='difficulty'
+                        placeholder='Choose a difficulty...'
+                        onChange={handleDiffChange}
+                    />
+                        <datalist id='difficulties'>
+                            {source_language.difficulties.map(difficulty => <option key={difficulty.id} value={difficulty.level} />)}
+                        </datalist>
+                    </React.Fragment>
+                    :
+                    null
+                }
+                <Form.Input 
+                    labelPosition='right'
+                    placeholder='100'
+                    value={pay}
+                    onChange={handleIntChange}
                     name='pay'
                     type='number'
-                    value={pay}
-                    onChange={handleChange}
-                />
+                >
+                    <Label basic>$</Label>
+                    <input />
+                    <Label>.00</Label>
+                </Form.Input>
                 <TextArea 
                     placeholder='Enter text to translate...'
                     name='content'
@@ -32,13 +72,13 @@ function TextFormView(props){
                     title={title}
                     content={content}
                     pay={pay}
-                    source_language_id={source_language_id}
-                    target_language_id={target_language_id}
-                    difficulty_id={difficulty_id}
+                    source_language={source_language}
+                    target_language={target_language}
+                    difficulty={difficulty}
                     handleSubmit={handleSubmit}
                 />
             </Form> 
-        </React.Fragment>
+        </Segment>
     )
 }
 

@@ -18,6 +18,11 @@ function NavBarAuthView(props){
                 as={Link}
                 to='/translations'
             />
+            <Menu.Item
+                name='Request A Translation'
+                as={Link}
+                to='/texts/new'
+            />
             <Menu.Item position='right'>
                 <Button.Group>
                     <Button primary>
