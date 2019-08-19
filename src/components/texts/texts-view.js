@@ -28,7 +28,14 @@ function TextsView(props){
             <Button 
                 fluid
                 as={Link}
-                to={'/texts/' + text.id}
+                to={
+                    {
+                        pathname: `/texts/${text.id}/translate`,
+                        state: {
+                            text: text
+                        }
+                    }
+                }
             >
                 {text.status}
             </Button>

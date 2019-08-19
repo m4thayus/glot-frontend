@@ -21,7 +21,7 @@ function App(props) {
             <Route exact path="/" component={authToken ? Dashboard : Home} />
             <Route exact path="/texts" component={authToken ? Texts : Home} />
             <Route exact path="/translations" component={authToken ? Translations : Home} />
-            <Route path="/texts/:id" component={authToken ? TranslationForm : Home} />
+            <Route path="/texts/:id/translate" component={authToken ? TranslationForm : Home} />
         </Segment>
     );
 }

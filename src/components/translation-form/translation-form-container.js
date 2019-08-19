@@ -37,6 +37,7 @@ class TranslationFormContainer extends React.Component {
         return (
             <Container>
                 <TranslationFormView
+                    text={this.props.text}
                     translation_id={translation_id}
                     title={title}
                     content={content}

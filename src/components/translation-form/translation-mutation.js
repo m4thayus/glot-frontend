@@ -20,24 +20,44 @@ function TranslationMutation(props){
     }
 
     return (
-        <Mutation
-            mutation={mutation}
-            refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
-            variables={variables}
-            onCompleted={data => handleSubmit(data)}
-            onError={error => console.log(error)}
-        >
-            {mutation => (
-                <Button 
-                    type='submit'
-                    onClick={mutation}
-                    color='green'
-                >
-                    Submit
-                </Button>
+        <React.Fragment>
+            <Mutation
+                mutation={mutation}
+                refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
+                variables={variables}
+                onCompleted={data => handleSubmit(data)}
+                onError={error => console.log(error)}
+            >
+                {mutation => (
+                    <Button 
+                        type='submit'
+                        onClick={mutation}
+                        color='green'
+                    >
+                        Submit
+                    </Button>
 
-            )}
-        </Mutation>
+                )}
+            </Mutation>
+            <Mutation
+                mutation={mutation}
+                refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
+                variables={variables}
+                onCompleted={data => null}
+                onError={error => console.log(error)}
+            >
+                {mutation => (
+                    <Button 
+                        type='submit'
+                        onClick={mutation}
+                        color='blue'
+                    >
+                        Save
+                    </Button>
+
+                )}
+            </Mutation>
+        </React.Fragment>
     )
 }
 

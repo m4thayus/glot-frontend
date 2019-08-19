@@ -8,7 +8,7 @@ const TRANSLATION_QUERY = loader('../graphql/translation-query.graphql');
 
 function TranslationFormQuery(props){
     const text_id = parseInt(props.match.params.id, 10)
-
+    const { text } = props.location.state
     const loader = (
         <Dimmer active inverted>
             <Loader size='large'>Loading</Loader>
@@ -26,7 +26,7 @@ function TranslationFormQuery(props){
                     </React.Fragment>
                 )
                 let translation = data.translations ? data.translations[0] : null 
-                return <TranslationFormContainer translation={translation} text_id={text_id} />
+                return <TranslationFormContainer translation={translation} text_id={text_id} text={text}/>
             }}
         </Query> 
     )
