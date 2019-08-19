@@ -1,0 +1,31 @@
+mutation CreateTextMutation(
+    $title: String!, 
+    $content: String!,
+    $pay: Int!,
+    $source_language_id: Int!,
+    $target_language_id: Int!,
+    $difficulty_id: Int!) {
+        createText(
+            title: $title
+            content: $content
+            textId: $pay
+            source_language_id: $source_language_id
+            target_language_id: $target_language_id
+            difficulty_id: $difficulty_id
+        ) {
+            id
+            title 
+            content
+            pay
+            status
+            difficulty {
+                description
+            }
+            sourceLanguage {
+                name
+            }
+            targetLanguage {
+                name
+            }
+        }
+    }
