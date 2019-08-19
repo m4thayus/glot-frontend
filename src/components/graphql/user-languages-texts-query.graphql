@@ -1,0 +1,25 @@
+{
+    me {
+        languages {
+            id
+            name
+            shortName
+            sourceTexts {
+                id
+                title 
+                content
+                pay
+                status
+                difficulty {
+                    description
+                }
+                sourceLanguage {
+                    name
+                }
+                targetLanguage {
+                    name
+                }
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import TextsContainer from "./texts-container";
 
-const TEXTS_QUERY = loader('../graphql/texts-query.graphql');
+const TEXTS_QUERY = loader('../graphql/user-languages-texts-query.graphql');
 
 function TextsQuery(props){
     const loader = (
@@ -23,7 +23,7 @@ function TextsQuery(props){
                         {loader}
                     </React.Fragment>
                 )
-                return <TextsContainer texts={data.texts}/>
+                return <TextsContainer languages={data.me.languages}/>
             }}
         </Query> 
     )
