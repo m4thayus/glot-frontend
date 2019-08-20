@@ -8,7 +8,7 @@ class TranslationsContainer extends React.Component {
 
         return (
             <Container>
-                <Segment>
+                <Segment raised>
                     <Item.Group divided>
                         {translations.map(translation => <TranslationsView key={translation.id} translation={translation} />)}
                     </Item.Group>

@@ -5,12 +5,11 @@ import TranslationMutation from "./translation-mutation";
 function TranslationFormView(props){
     let { text, translation_id, title, content, text_id, status, handleChange, handleSubmit } = props
     return (
-        <Segment>
+        <Segment raised>
             <Grid columns={2} relaxed='very'>
                 <Grid.Column>
                     <Header>{text.title}</Header>
                     <p>{text.content}</p>
-
                 </Grid.Column>
                 <Grid.Column>
                     <Form>

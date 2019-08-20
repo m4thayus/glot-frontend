@@ -21,7 +21,7 @@ function TextFormView(props){
     }
 
     return (
-        <Segment>
+        <Segment raised>
             <Form>
                 <Form.Input
                     placeholder='Title'
