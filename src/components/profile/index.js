@@ -1,0 +1,1 @@
+export { default } from './profile-query.js'

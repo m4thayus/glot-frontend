@@ -10,6 +10,7 @@ import TextForm from '../text-form'
 import Translations from '../translations'
 import TranslationForm from '../translation-form'
 import Dashboard from '../dashboard'
+import Profile from '../profile'
 import { AUTH_TOKEN } from '../../constants';
 
 function App(props) {
@@ -20,6 +21,7 @@ function App(props) {
             <NavBar history={props.history} />
             <Divider horizontal />
             <Route exact path="/" component={authToken ? Dashboard : Home} />
+            <Route exact path="/profile" component={authToken ? Profile : Home} />
             <Route exact path="/texts" component={authToken ? Texts : Home} />
             <Route exact path="/texts/new" component={authToken ? TextForm : Home} />
             <Route exact path="/translations" component={authToken ? Translations : Home} />

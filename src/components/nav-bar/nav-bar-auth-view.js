@@ -25,7 +25,7 @@ function NavBarAuthView(props){
             />
             <Menu.Item position='right'>
                 <Button.Group>
-                    <Button primary>
+                    <Button primary as={Link} to="/profile">
                         <Icon name='user outline' />{user.firstName}
                     </Button>
                     <Button

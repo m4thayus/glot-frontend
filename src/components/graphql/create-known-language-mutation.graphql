@@ -1,0 +1,17 @@
+mutation CreateKnownLanguageMutation($language_id: Int!, $difficulty_id: Int!) {
+    createKnownLanguage(
+        languageId: $language_id
+        difficultyId: $difficulty_id
+    ) {
+        id
+        vetted
+        language {
+            name
+            shortName
+        }
+        difficulty {
+            level
+            description
+        }
+    }
+}
