@@ -16,7 +16,7 @@ function App(props) {
     const authToken = localStorage.getItem(AUTH_TOKEN)
 
     return (
-        <Segment>
+        <Segment basic>
             <NavBar history={props.history} />
             <Divider horizontal />
             <Route exact path="/" component={authToken ? Dashboard : Home} />
