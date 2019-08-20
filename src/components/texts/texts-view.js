@@ -8,7 +8,6 @@ function TextsView(props){
     let pay_per_word = (text.pay / word_count).toFixed(2)
 
     return (
-        <React.Fragment>
         <Segment raised>
             <Label ribbon color='red'>
                 {word_count} Words
@@ -31,24 +30,20 @@ function TextsView(props){
                 ?
                     <Button fluid disabled>Completed</Button>
                 :
-                <Button
+                    <Button
                     fluid
                     primary
                     as={Link}
-                    to={
-                        {
-                            pathname: `/texts/${text.id}/translate`,
-                            state: {
-                                text: text
-                            }
+                    to={{
+                        pathname: `/texts/${text.id}/translate`,
+                        state: {
+                            text: text
                         }
-                    }
-                >
+                    }}>
                     Submit A Translation
                 </Button>
             }
         </Segment>    
-        </React.Fragment>
     )
 }
 

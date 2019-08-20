@@ -25,10 +25,10 @@ function TranslationsView(props){
                                 floated='right'
                                 as={Link}
                                 to={{
-                                        pathname: `/texts/${translation.text.id}/translate`,
-                                        state: {
-                                            text: translation.text
-                                        }
+                                    pathname: `/texts/${translation.text.id}/translate`,
+                                    state: {
+                                        text: translation.text
+                                    }
                                 }}>
                                 Edit
                             </Button>
