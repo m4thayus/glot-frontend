@@ -9,7 +9,7 @@ function LoginForm(props){
         <React.Fragment>
             <Modal.Header>Log In</Modal.Header>
             <Modal.Description>
-                <Segment padded='very'>
+                <Segment padded='very' basic>
                     <Form>
                         <Form.Input
                             label='Username'

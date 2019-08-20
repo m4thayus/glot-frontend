@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import ProfileContainer from "./profile-container";
 
-const USER_QUERY =  loader('../graphql/detailed-user-query.graphql');
+const USER_QUERY =  loader('../graphql/basic-user-query.graphql');
 
 function DashboardQuery(props){
     const loader = (

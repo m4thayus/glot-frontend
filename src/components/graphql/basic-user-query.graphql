@@ -1,6 +1,15 @@
 {
     me {
+        username
         firstName
         lastName
+        knownLanguages {
+            id
+            vetted
+            language {
+                name
+                shortName
+            }
+        }
     }
 }

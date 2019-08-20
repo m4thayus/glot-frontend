@@ -1,9 +1,9 @@
 import React from "react"
-import { Form, Modal, Segment } from "semantic-ui-react";
-import SignupMutation from "./signup-mutation";
+import { Segment, Form, Modal } from "semantic-ui-react";
+import UserMutation from "./user-mutation";
 
-function SignupForm(props){
-    let { username, password, first_name, last_name, handleChange, handleSubmit } = props
+function ProfileFormView(props){
+    let { first_name, last_name, username, password, handleChange } = props
 
     return (
         <React.Fragment>
@@ -44,17 +44,15 @@ function SignupForm(props){
                 </Segment>
             </Modal.Description>
             <Modal.Actions>
-                <SignupMutation
+                <UserMutation
                     username={username}
                     password={password}
                     first_name={first_name}
                     last_name={last_name}
-                    handleSubmit={handleSubmit}
                 />
             </Modal.Actions>
         </React.Fragment>
-    
     )
 }
 
-export default SignupForm
+export default ProfileFormView
