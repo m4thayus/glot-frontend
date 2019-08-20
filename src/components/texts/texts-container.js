@@ -1,6 +1,6 @@
 import React from "react";
 import TextsView from "./texts-view";
-import { Item, Container, Pagination, Tab, Segment, Menu } from 'semantic-ui-react'
+import { Item, Container, Pagination, Menu } from 'semantic-ui-react'
 
 class TextsContainer extends React.Component {
     constructor(props) {
@@ -48,7 +48,7 @@ class TextsContainer extends React.Component {
         return (
             <Container>
                 {/* <Tab menu={{ fluid: true, vertical: true }} menuPosition='left' panes={panes} /> */}
-                <Menu vertical>
+                <Menu text>
                     <Menu.Item header>Source Language</Menu.Item>
                     {menuItems}
                 </Menu>
