@@ -9,7 +9,7 @@ function TextsView(props){
 
     return (
         <Segment raised>
-            <Label ribbon color='red'>
+            <Label ribbon color='green'>
                 {word_count} Words
             </Label>
             <Header>{text.title}</Header>
