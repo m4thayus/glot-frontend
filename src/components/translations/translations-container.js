@@ -30,7 +30,7 @@ class TranslationsContainer extends React.Component {
                                 <Item.Group divided>
                                     {translations.map(translation => <TranslationsView key={translation.id} translation={translation} />)}
                                 </Item.Group>
-                                <Pagination secondary defaultActivePage={1} disabled totalPages={5} />
+                                <Pagination fluid widths='9' secondary defaultActivePage={1} disabled totalPages={5} />
                             </React.Fragment>
                     }
                 </Segment>
