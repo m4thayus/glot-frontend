@@ -2,14 +2,10 @@ import React from "react"
 import { Query } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
-import NavBarAuthView from "./nav-bar-auth-view";
+import DashboardContainer from './dashboard-container'
+const USER_QUERY =  loader('../graphql/detailed-user-query.graphql');
 
-const USER_QUERY =  loader('../graphql/basic-user-query.graphql');
-
-
-function NavBarAuthQuery(props){
-    let { handleAuth } = props
-
+function DashboardQuery(props){
     const loader = (
             <Dimmer active inverted>
                 <Loader size='large'>Loading</Loader>
@@ -26,10 +22,10 @@ function NavBarAuthQuery(props){
                         {loader}
                     </React.Fragment>
                 )
-                return <NavBarAuthView user={data.me} handleAuth={handleAuth} />
+                return <DashboardContainer user={data.me} />
             }}
         </Query> 
     )
 }
 
-export default NavBarAuthQuery
+export default DashboardQuery

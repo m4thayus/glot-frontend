@@ -6,7 +6,7 @@ class DashboardContainer extends React.Component {
     render() {
         return (
             <Container>
-                <DashboardView /> 
+                <DashboardView user={this.props.user} /> 
             </Container>
         )
     }

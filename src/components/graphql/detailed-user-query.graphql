@@ -1,0 +1,29 @@
+{
+    me {
+        firstName
+        lastName
+        texts {
+            id
+            title
+            content
+            status
+            pay
+        }
+        translations {
+            id
+            title
+            content
+            status
+            text {
+                pay
+            }
+        }
+        knownLanguages {
+            vetted
+            language {
+                name
+                shortName
+            }
+        }
+    }
+}

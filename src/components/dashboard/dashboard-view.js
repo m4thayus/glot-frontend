@@ -1,13 +1,117 @@
 import React from "react"
+import { Header, Statistic, Accordion, Button, Segment } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import ProgressView from "./progress-view";
+
 
 function DashboardView(props){
+    let { user } = props
+    console.log(user)
+    let approved_translations = user.translations.filter(translation => translation.status === 'approved')
+    let total_pay = approved_translations.reduce(((sum ,translation) => sum + translation.text.pay), 0 )
+    let pending_translations = user.translations.filter(translation => translation.status === 'pending')
+    let num_known_langs = user.knownLanguages.length
+
+    let stats = [
+        {key: 'langs', label: 'Known Languages', value: num_known_langs},
+        {key: 'pending', label: 'Pending Translations', value: pending_translations.length},
+        {key: 'approved', label: 'Approved Translations', value: approved_translations.length},
+        {key: 'pay', label: 'Total Earned', value: `$${total_pay}`}
+    ]
+
+    let faqs =[
+        {
+            key: 'what-is-dog',
+            title: 'What is a dog?',
+            content: [
+                'A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome',
+                'guest in many households across the world.',
+                ].join(' '),
+        },
+        {
+            key: 'kinds-of-dogs',
+            title: 'What kinds of dogs are there?',
+            content: [
+                'There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog',
+                'that they find to be compatible with their own lifestyle and desires from a companion.',
+                ].join(' '),
+        },
+        {
+            key: 'acquire-dog',
+            title: 'How do you acquire a dog?',
+            content: {
+                content: (
+                    <div>
+                    <p>
+                    Three common ways for a prospective owner to acquire a dog is from
+                    pet shops, private owners, or shelters.
+                    </p>
+                    <p>
+                    A pet shop may be the most convenient way to buy a dog. Buying a dog
+                    from a private owner allows you to assess the pedigree and
+                    upbringing of your dog before choosing to take it home. Lastly,
+                    finding your dog from a shelter, helps give a good home to a dog who
+                    may not find one so readily.
+                    </p>
+                    </div>
+                ),
+            },
+        },
+    ]
+
+    let textsProgress = user.texts.map(text => (
+        <ProgressView key={text.id} item={text} />
+    ))
+
+    let translationsProgress = user.translations.map(translation => (
+        <ProgressView key={translation.id} item={translation} />
+    ))
+
+    let requestTranslation = (
+        <Button
+            primary
+            animated="fade"
+            as={Link}
+            to='/texts/new'>
+                <Button.Content visible>You Haven't Requested Any Yet!</Button.Content>
+                <Button.Content hidden>Request One</Button.Content>
+        </Button>
+    )
+
+    let writeTranslation = (
+        <Button
+            primary
+            animated="fade"
+            as={Link}
+            to='/texts'>
+                <Button.Content visible>You Haven't Written Any Yet!</Button.Content>
+                <Button.Content hidden>Find A Text To Translate</Button.Content>
+        </Button>
+    )
+
     return (
-        <React.Fragment>
-            <h1>Dashboard</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam laoreet dui quis diam facilisis, in pharetra lorem vehicula. Duis volutpat facilisis massa, quis dictum dolor sodales a. Donec vitae enim vitae augue laoreet suscipit eget at justo. Curabitur faucibus nunc elementum, tincidunt eros ut, elementum massa. Pellentesque sit amet leo aliquam, commodo arcu et, commodo mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam gravida mollis velit, vel placerat tortor pellentesque in.</p>
-            <p>Donec nec lacus non metus posuere facilisis. Cras hendrerit lacus at ligula convallis lobortis. Fusce consectetur elementum tortor sit amet commodo. Etiam mattis augue nec felis auctor vehicula eget at mauris. Donec ut viverra diam, at commodo purus. Mauris quis molestie ante. Sed ut feugiat tellus, vel suscipit nulla. Ut congue, mi id laoreet consequat, nisl nisl gravida ipsum, congue facilisis tortor sem ut quam. Mauris ac efficitur augue. In bibendum euismod risus eu molestie. Fusce sed mauris dui. Mauris nec augue non justo auctor accumsan vitae commodo tortor. Phasellus vitae sem eu diam porta ultrices gravida id est.</p>
-            <p>Fusce pulvinar libero consequat vehicula gravida. Duis sed velit ipsum. Fusce eleifend urna sit amet purus dapibus, sed aliquet odio egestas. Maecenas feugiat nunc sapien. Nunc dolor magna, placerat et euismod id, pharetra nec neque. In fringilla neque non lobortis consequat. Vestibulum pellentesque, velit eget sollicitudin mattis, mauris nisl tincidunt tortor, nec fermentum enim risus sit amet eros. Fusce fermentum, felis nec semper tincidunt, velit leo tincidunt leo, nec rutrum dui lacus euismod leo. Curabitur purus ex, euismod id viverra aliquet, elementum varius libero. In gravida, ante nec iaculis iaculis, tortor mi porttitor erat, nec egestas massa ante quis lectus. Nam congue interdum ipsum, sed hendrerit arcu semper vitae. Duis sodales orci turpis, vel rhoncus orci pellentesque vel. </p>
-        </React.Fragment>
+        <Segment.Group raised>
+            <Segment>
+                <Header size="large">Welcome, {user.firstName} {user.lastName}</Header>
+                <Statistic.Group items={stats} widths="4" />
+            </Segment>
+            <Segment>
+                <Header>Your Translation Requests</Header>
+                <Segment textAlign='center' basic>
+                    {user.texts.length === 0 ? requestTranslation : textsProgress}
+                </Segment>
+            </Segment>
+            <Segment>
+                <Header>Your Submitted Translations</Header>
+                <Segment textAlign='center' basic>
+                    {user.translations.length === 0 ? writeTranslation : translationsProgress}
+                </Segment>
+            </Segment>
+            <Segment>
+                <Header>FAQs</Header>
+                <Accordion defaultActiveIndex={0} panels={faqs} />
+            </Segment>
+        </Segment.Group>
     )
 }
 

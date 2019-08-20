@@ -1,1 +1,1 @@
-export { default } from './dashboard-container.js'
+export { default } from './dashboard-query.js'
