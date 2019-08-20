@@ -1,4 +1,3 @@
-
 {
     translations {
         id
@@ -7,6 +6,22 @@
         status
         votes {
             up
+        }
+        text {
+            id
+            title 
+            content
+            pay
+            status
+            difficulty {
+                description
+            }
+            sourceLanguage {
+                name
+            }
+            targetLanguage {
+                name
+            }
         }
     }
 }

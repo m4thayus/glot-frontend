@@ -1,6 +1,6 @@
 import React from "react";
 import TranslationsView from "./translations-view";
-import { Item, Container, Pagination } from 'semantic-ui-react'
+import { Item, Container, Pagination, Segment } from 'semantic-ui-react'
 
 class TranslationsContainer extends React.Component {
     render() {
@@ -8,10 +8,12 @@ class TranslationsContainer extends React.Component {
 
         return (
             <Container>
-                <Item.Group>
-                    {translations.map(translation => <TranslationsView key={translation.id} translation={translation} />)}
-                </Item.Group>
-                <Pagination secondary defaultActivePage={1} disabled totalPages={5} />
+                <Segment>
+                    <Item.Group divided>
+                        {translations.map(translation => <TranslationsView key={translation.id} translation={translation} />)}
+                    </Item.Group>
+                    <Pagination secondary defaultActivePage={1} disabled totalPages={5} />
+                </Segment>
             </Container>
         )
     }

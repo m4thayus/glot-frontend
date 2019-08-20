@@ -1,8 +1,9 @@
-mutation CreateTranslationMutation($title: String!, $content: String!, $text_id: Int!) {
+mutation CreateTranslationMutation($title: String!, $content: String!, $text_id: Int!, $status: String!) {
     createTranslation(
         title: $title
         content: $content
         textId: $text_id
+        status: $status
     ) {
         id
         title 

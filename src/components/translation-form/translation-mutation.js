@@ -11,13 +11,16 @@ function TranslationMutation(props){
     let { translation_id, title, content, text_id, status, handleSubmit } = props
 
     let mutation = CREATE_TRANSLATION_MUTATION
-    let variables =  { title, content, text_id }
+    let variables =  { title, content, text_id, status: 'pending' }
 
     if (translation_id) {
         let id = parseInt(translation_id, 10)
         mutation = UPDATE_TRANSLATION_MUTATION
         variables = { id, title, content, text_id, status }
     }
+
+    let save_variables = { ...variables }
+    save_variables.status = 'draft'
 
     return (
         <React.Fragment>
@@ -42,7 +45,7 @@ function TranslationMutation(props){
             <Mutation
                 mutation={mutation}
                 refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
-                variables={variables}
+                variables={save_variables}
                 onCompleted={data => null}
                 onError={error => console.log(error)}
             >
