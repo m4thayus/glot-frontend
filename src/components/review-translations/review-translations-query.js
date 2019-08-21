@@ -15,7 +15,7 @@ function TranslationsQuery(props){
     )
 
     return (
-        <Query query={TRANSLATIONS_QUERY} variables={{ status }}>
+        <Query query={TRANSLATIONS_QUERY} variables={{ status }} fetchPolicy={'cache-and-network'}>
             {({ loading, error, data }) => {
                 if (loading) return loader
                 if (error) return (

@@ -8,7 +8,7 @@ const UPDATE_TRANSLATION_MUTATION = loader('../graphql/update-translation-mutati
 const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
 
 function TranslationMutation(props){
-    let { translation_id, title, content, text_id, status, handleSubmit } = props
+    let { translation_id, title, content, text_id, handleSubmit } = props
 
     let mutation = CREATE_TRANSLATION_MUTATION
     let variables =  { title, content, text_id, status: 'pending' }
@@ -16,7 +16,7 @@ function TranslationMutation(props){
     if (translation_id) {
         let id = parseInt(translation_id, 10)
         mutation = UPDATE_TRANSLATION_MUTATION
-        variables = { id, title, content, text_id, status }
+        variables = { id, title, content, text_id, status: 'pending' }
     }
 
     let save_variables = { ...variables }
@@ -46,7 +46,7 @@ function TranslationMutation(props){
                 mutation={mutation}
                 refetchQueries={() => [{query: TRANSLATIONS_QUERY}]}
                 variables={save_variables}
-                onCompleted={data => null}
+                onCompleted={data => handleSubmit(data)}
                 onError={error => console.log(error)}
             >
                 {mutation => (
