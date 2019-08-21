@@ -64,6 +64,7 @@ function ProfileView(props){
                         trigger={<Button primary>Edit Known Languages</Button>}>
                         <KnownLanguageForm 
                             languages={languages}
+                            knownLanguages={user.knownLanguages}
                         />
                     </Modal>
                 </Button.Group>

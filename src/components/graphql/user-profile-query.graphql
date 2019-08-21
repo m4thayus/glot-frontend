@@ -8,8 +8,14 @@
             id
             vetted
             language {
+                id
                 name
                 shortName
+            }
+            difficulty{
+                id
+                level
+                description
             }
         }
     }

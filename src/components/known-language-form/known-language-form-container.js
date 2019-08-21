@@ -29,7 +29,7 @@ class KnownLanguageFormContainer extends React.Component {
 
     render() {
         let { selectedLanguage, selectedDifficulty } = this.state
-        let { languages } = this.props
+        let { languages, knownLanguages } = this.props
 
         return (
             <KnownLanguageFormView 
@@ -39,6 +39,7 @@ class KnownLanguageFormContainer extends React.Component {
                 handleLangChange={this.handleLangChange}
                 handleDiffChange={this.handleDiffChange}
                 handleSubmit={this.handleSubmit}
+                knownLanguages={knownLanguages}
             />
         )
     }

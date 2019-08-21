@@ -3,7 +3,7 @@ import { Form, Modal, Segment} from "semantic-ui-react";
 import KnownLanguageMutation from "./known-language-mutation";
 
 function LanguageFormView(props){
-    let { languages, selectedLanguage, selectedDifficulty, handleLangChange, handleDiffChange, handleSubmit } = props
+    let { languages, knownLanguages, selectedLanguage, selectedDifficulty, handleLangChange, handleDiffChange, handleSubmit } = props
 
     let languageOptions = languages.map(language => (
         {
@@ -15,7 +15,10 @@ function LanguageFormView(props){
 
     let difficulties = []
     if (selectedLanguage !== '') {
-        difficulties = selectedLanguage.difficulties.map(difficulty => (
+        let selectedKnownLanguages = knownLanguages.filter(known => known.language.id === selectedLanguage.id)
+        let selectedKnownDifficultiesIds = selectedKnownLanguages.map(known => known.difficulty.id)
+        let newDifficulties = selectedLanguage.difficulties.filter(difficulty => !selectedKnownDifficultiesIds.includes(difficulty.id))
+        difficulties = newDifficulties.map(difficulty => (
             {
                 key: difficulty.value,
                 text: difficulty.description,
@@ -23,6 +26,14 @@ function LanguageFormView(props){
             }
         ))
     }
+
+    let noDifficulties = [
+        {
+            key: 'allKnown',
+            text: 'You already know this language...',
+            value: ''
+        }
+    ]
 
     return (
         <React.Fragment>
@@ -44,7 +55,7 @@ function LanguageFormView(props){
                                 fluid selection 
                                 placeholder='Difficulty'
                                 value={selectedDifficulty.description}
-                                options={difficulties} 
+                                options={difficulties.length === 0 ? noDifficulties : difficulties} 
                                 onChange={handleDiffChange} />
                             :
                             null
