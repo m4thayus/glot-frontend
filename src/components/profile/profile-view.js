@@ -63,7 +63,6 @@ function ProfileView(props){
                         closeIcon
                         trigger={<Button primary>Edit Known Languages</Button>}>
                         <KnownLanguageForm 
-                            known={user.knownLanguages}
                             languages={languages}
                         />
                     </Modal>

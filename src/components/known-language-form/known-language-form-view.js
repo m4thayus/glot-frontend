@@ -3,8 +3,9 @@ import { Form, Modal, Segment} from "semantic-ui-react";
 import KnownLanguageMutation from "./known-language-mutation";
 
 function LanguageFormView(props){
+    let { languages, selectedLanguage, selectedDifficulty, handleLangChange, handleDiffChange } = props
 
-    let languages = props.languages.map(language => (
+    let languageOptions = languages.map(language => (
         {
             key: language.shortName,
             text: language.name,
@@ -12,13 +13,16 @@ function LanguageFormView(props){
         }
     ))
 
-    // let difficulties = props.selectedLanguage.difficulties.map(difficulty => (
-    //     {
-    //         key: difficulty.value,
-    //         text: difficulty.description,
-    //         value: difficulty.value
-    //     }
-    // ))
+    let difficulties = []
+    if (selectedLanguage !== '') {
+        difficulties = selectedLanguage.difficulties.map(difficulty => (
+            {
+                key: difficulty.value,
+                text: difficulty.description,
+                value: difficulty.description
+            }
+        ))
+    }
 
     return (
         <React.Fragment>
@@ -26,15 +30,32 @@ function LanguageFormView(props){
             <Modal.Description>
                 <Segment padded='very' basic>
                     <Form>
-                        <Form.Dropdown placeholder='Language' fluid selection options={languages} />
-                        {/* <Form.Dropdown placeholder='Difficulty' fluid selection options={difficulties} /> */}
+                        <Form.Dropdown
+                            name='selectedLanguage'
+                            fluid selection 
+                            placeholder='Language'
+                            value={selectedLanguage.name}
+                            options={languageOptions}
+                            onChange={handleLangChange} />
+                        { selectedLanguage !== '' 
+                            ?
+                            <Form.Dropdown
+                                name='selectedDifficulty'
+                                fluid selection 
+                                placeholder='Difficulty'
+                                value={selectedDifficulty.description}
+                                options={difficulties} 
+                                onChange={handleDiffChange} />
+                            :
+                            null
+                        }
                     </Form>
                 </Segment>
             </Modal.Description>
             <Modal.Actions>
                 <KnownLanguageMutation
-                    // first_name={first_name}
-                    // last_name={last_name}
+                    selectedLanguage={selectedLanguage}
+                    selectedDifficulty={selectedDifficulty}
                 />
             </Modal.Actions>
         </React.Fragment>
