@@ -24,7 +24,7 @@ function NavBarAuthView(props){
                 to='/texts/new'
             />
             <Menu.Item
-                name='Review A Translation'
+                name='Review Translations'
                 as={Link}
                 to={{
                     pathname: `/translations/review`,

@@ -4,6 +4,12 @@ mutation VoteQuery($up: Boolean!, $translation_id: Int!) {
         up
         translation {
             id
+            votes {
+                up
+            }
+            text {
+                id
+            }
         }
     }
 }

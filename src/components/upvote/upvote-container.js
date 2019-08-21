@@ -18,7 +18,6 @@ class UpvoteContainer extends React.Component {
     }
 
     handleSubmit = data => {
-        console.log(data)
         this.setState({
             hasVoted: !this.state.hasVoted 
         })
