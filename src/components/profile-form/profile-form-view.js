@@ -1,6 +1,6 @@
 import React from "react"
 import { Segment, Form, Modal } from "semantic-ui-react";
-import UserMutation from "./user-mutation";
+import UpdateUserMutation from "./update-user-mutation";
 
 function ProfileFormView(props){
     let { first_name, last_name, username, password, handleChange } = props
@@ -44,7 +44,7 @@ function ProfileFormView(props){
                 </Segment>
             </Modal.Description>
             <Modal.Actions>
-                <UserMutation
+                <UpdateUserMutation
                     username={username}
                     password={password}
                     first_name={first_name}

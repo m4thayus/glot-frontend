@@ -1,0 +1,13 @@
+mutation UpdateMe($username: String!, $password: String!, $first_name: String!, $last_name: String!) {
+    updateMe(
+        username: $username
+        password: $password
+        firstName: $first_name
+        lastName: $last_name
+    ) {
+        id
+        username
+        firstName
+        lastName
+    }
+}
