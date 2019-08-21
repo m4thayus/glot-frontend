@@ -1,76 +1,79 @@
 import React from "react"
 import ProfileFormView from "./profile-form-view";
-import { Segment, Modal, Button, Form, Divider, Header } from "semantic-ui-react";
-import LanguageLabels from "./language-labels";
-import LanguageFormView from "./language-form-view";
+import { Segment, Modal, Button, Form, Header } from "semantic-ui-react";
+import KnownLanguageLabels from "./known-language-labels";
+import KnownLanguageFormView from "./known-language-form-view";
 
 function ProfileView(props){
-    let { user, username, password, last_name, first_name, handleChange } = props
-
-    console.log(user)
+    let { user, languages, username, password, last_name, first_name, handleChange } = props
 
     return (
-        <Segment raised>
-            <Header>Your Account</Header>
-            <Button.Group>
-                <Modal 
-                    closeIcon
-                    trigger={<Button primary floated="right">Edit Profile</Button>}>
-                    <ProfileFormView 
-                        username={username}
-                        password={password}
-                        last_name={last_name}
-                        first_name={first_name}
-                        handleChange={handleChange}
+        <Segment.Group raised>
+            <Segment basic>
+                <Header size="large">Your Account</Header>
+            </Segment>
+            <Segment>
+                <Form>
+                    <Form.Input
+                        disabled
+                        label='First Name'
+                        placeholder='First Name'
+                        name='first_name'
+                        value={first_name}
                     />
-                </Modal>
-                <Modal 
-                    closeIcon
-                    trigger={<Button primary>Edit Known Languages</Button>}>
-                    <LanguageFormView 
-                        known={user.knownLanguages}
+                    <Form.Input
+                        disabled
+                        label='Last Name'
+                        placeholder='Last Name'
+                        name='last_name'
+                        value={last_name}
                     />
-                </Modal>
-            </Button.Group>
-            <Form>
-                <Form.Input
-                    disabled
-                    label='First Name'
-                    placeholder='First Name'
-                    name='first_name'
-                    value={first_name}
-                    onChange={handleChange}
-                />
-                <Form.Input
-                    disabled
-                    label='Last Name'
-                    placeholder='Last Name'
-                    name='last_name'
-                    value={last_name}
-                    onChange={handleChange}
-                />
-                <Form.Input
-                    disabled
-                    label='Username'
-                    placeholder='Username'
-                    name='username'
-                    value={user.username}
-                    onChange={handleChange}
-                />
-                <Form.Input
-                    disabled
-                    label='Password'
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                    value='a long string that looks right'
-                    onChange={handleChange}
-                />
-            </Form>
-            <Divider horizontal />
-            <Header>Your Known Languages</Header>
-            {user.knownLanguages.map(known => <LanguageLabels key={known.id} known={known} />)}
-        </Segment>
+                    <Form.Input
+                        disabled
+                        label='Username'
+                        placeholder='Username'
+                        name='username'
+                        value={user.username}
+                    />
+                    <Form.Input
+                        disabled
+                        label='Password'
+                        placeholder='Password'
+                        name='password'
+                        type='password'
+                        value='a long string that looks right'
+                    />
+                </Form>
+            </Segment>
+            <Segment>
+                <Header>Your Known Languages</Header>
+                {user.knownLanguages.map(known => <KnownLanguageLabels key={known.id} known={known} />)}
+            </Segment>
+            <Segment textAlign='right'>
+                <Button.Group>
+                    <Modal 
+                        closeIcon
+                        trigger={<Button>Edit Profile</Button>}>
+                        <ProfileFormView 
+                            username={username}
+                            password={password}
+                            last_name={last_name}
+                            first_name={first_name}
+                            handleChange={handleChange}
+                        />
+                    </Modal>
+                    <Button.Or />
+                    <Modal 
+                        closeIcon
+                        trigger={<Button primary>Edit Known Languages</Button>}>
+                        <KnownLanguageFormView 
+                            known={user.knownLanguages}
+                            languages={languages}
+                        />
+                    </Modal>
+                </Button.Group>
+            </Segment>
+        </Segment.Group>
     )
 }
 

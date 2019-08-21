@@ -1,0 +1,25 @@
+{
+    me {
+        username
+        firstName
+        lastName
+        knownLanguages {
+            id
+            vetted
+            language {
+                name
+                shortName
+            }
+        }
+    }
+    languages {
+        id
+        name
+        shortName
+        difficulties{
+            id
+            level
+            description
+        }
+    }
+}

@@ -7,7 +7,7 @@ function ProfileFormView(props){
 
     return (
         <React.Fragment>
-            <Modal.Header>Sign Up</Modal.Header>
+            <Modal.Header>Edit Your Profile</Modal.Header>
             <Modal.Description>
                 <Segment padded='very' basic>
                     <Form>

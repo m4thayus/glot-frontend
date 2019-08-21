@@ -3,11 +3,11 @@ import { Form, Modal, Segment} from "semantic-ui-react";
 
 function LanguageFormView(props){
 
-    let languages = props.known.map(known => (
+    let languages = props.languages.map(language => (
         {
-            key: known.language.shortName,
-            text: known.language.name,
-            value: known.language.name
+            key: language.shortName,
+            text: language.name,
+            value: language.name
         }
     ))
 

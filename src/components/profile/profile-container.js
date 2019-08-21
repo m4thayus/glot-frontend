@@ -4,9 +4,9 @@ import ProfileView from "./profile-view";
 
 class ProfileContainer extends React.Component {
 
-
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
             username: '',
             password: '',
@@ -22,12 +22,13 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        let { user } = this.props
+        let { user, languages } = this.props
         let { username, password, last_name, first_name } = this.state
         return (
             <Container>
                 <ProfileView 
                     user={user}
+                    languages={languages}
                     username={username}
                     password={password}
                     last_name={last_name}
