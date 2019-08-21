@@ -19,19 +19,6 @@ class TextsContainer extends React.Component {
 
     render() {
         let { languages } = this.props
-        // const panes = languages.map(lang => {
-        //     let menuText = lang.name
-        //     return {menuItem: menuText, render: () => {
-        //         return (
-        //             <Tab.Pane>
-        //                 <Item.Group>
-        //                     {lang.sourceTexts.map(text => <TextsView key={text.id} text={text} />)}
-        //                 </Item.Group>
-        //                 <Pagination secondary defaultActivePage={1} disabled totalPages={5} />
-        //             </Tab.Pane>
-        //         )}
-        //     }
-        // })
         let { activeItem } = this.state
         const menuItems = languages.map(lang => {
             return (
@@ -47,7 +34,6 @@ class TextsContainer extends React.Component {
 
         return (
             <Container>
-                {/* <Tab menu={{ fluid: true, vertical: true }} menuPosition='left' panes={panes} /> */}
                 <Menu text>
                     <Menu.Item header>Source Language</Menu.Item>
                     {menuItems}
