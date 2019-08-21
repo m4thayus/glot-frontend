@@ -4,7 +4,7 @@ import { Label } from "semantic-ui-react";
 function KnownLanguageLabel(props){
     return (
         <Label>
-            {props.known.language.name}
+            {props.known.difficulty.description} {props.known.language.name}
         </Label>
     )
 }

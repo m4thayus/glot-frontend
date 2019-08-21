@@ -12,7 +12,7 @@ function ProfileView(props){
             <Segment basic>
                 <Header size="large">Your Account</Header>
             </Segment>
-            <Segment>
+            <Segment basic>
                 <Form>
                     <Form.Input
                         disabled
@@ -45,11 +45,11 @@ function ProfileView(props){
                     />
                 </Form>
             </Segment>
-            <Segment>
+            <Segment basic>
                 <Header>Your Known Languages</Header>
                 {user.knownLanguages.map(known => <KnownLanguageLabel key={known.id} known={known} />)}
             </Segment>
-            <Segment textAlign='right'>
+            <Segment textAlign='right' basic>
                 <Button.Group>
                     <Modal 
                         closeIcon
