@@ -1,7 +1,7 @@
 import React from "react"
 import ProfileFormView from "./profile-form-view";
 import { Segment, Modal, Button, Form, Header } from "semantic-ui-react";
-import KnownLanguageLabels from "./known-language-labels";
+import KnownLanguageLabel from "./known-language-label";
 import KnownLanguageFormView from "./known-language-form-view";
 
 function ProfileView(props){
@@ -47,7 +47,7 @@ function ProfileView(props){
             </Segment>
             <Segment>
                 <Header>Your Known Languages</Header>
-                {user.knownLanguages.map(known => <KnownLanguageLabels key={known.id} known={known} />)}
+                {user.knownLanguages.map(known => <KnownLanguageLabel key={known.id} known={known} />)}
             </Segment>
             <Segment textAlign='right'>
                 <Button.Group>

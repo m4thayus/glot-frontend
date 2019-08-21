@@ -1,7 +1,7 @@
 import React from "react"
 import { Label } from "semantic-ui-react";
 
-function LanguageLabels(props){
+function KnownLanguageLabel(props){
     return (
         <Label>
             {props.known.language.name}
@@ -9,4 +9,4 @@ function LanguageLabels(props){
     )
 }
 
-export default LanguageLabels
+export default KnownLanguageLabel
