@@ -6,7 +6,7 @@ import { Button } from "semantic-ui-react";
 const CREATE_KNOWN_LANGUAGE_MUTATION = loader('../graphql/create-known-language-mutation.graphql');
 
 function KnownLanguageMutation(props){
-    let { selectedLanguage, selectedDifficulty } = props
+    let { selectedLanguage, selectedDifficulty, handleSubmit } = props
     let language_id = parseInt(selectedLanguage.id, 10)
     let difficulty_id = parseInt(selectedDifficulty.id, 10)
 
@@ -14,7 +14,7 @@ function KnownLanguageMutation(props){
         <Mutation
             mutation={CREATE_KNOWN_LANGUAGE_MUTATION}
             variables={{ language_id, difficulty_id }}
-            onCompleted={data => null}
+            onCompleted={data => handleSubmit(data)}
             onError={error => console.log(error)}
         >
             {mutation => (

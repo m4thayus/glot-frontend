@@ -3,7 +3,7 @@ import { Form, Modal, Segment} from "semantic-ui-react";
 import KnownLanguageMutation from "./known-language-mutation";
 
 function LanguageFormView(props){
-    let { languages, selectedLanguage, selectedDifficulty, handleLangChange, handleDiffChange } = props
+    let { languages, selectedLanguage, selectedDifficulty, handleLangChange, handleDiffChange, handleSubmit } = props
 
     let languageOptions = languages.map(language => (
         {
@@ -56,6 +56,7 @@ function LanguageFormView(props){
                 <KnownLanguageMutation
                     selectedLanguage={selectedLanguage}
                     selectedDifficulty={selectedDifficulty}
+                    handleSubmit={handleSubmit}
                 />
             </Modal.Actions>
         </React.Fragment>
