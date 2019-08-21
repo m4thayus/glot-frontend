@@ -7,9 +7,6 @@ mutation VoteQuery($up: Boolean!, $translation_id: Int!) {
             votes {
                 up
             }
-            text {
-                id
-            }
         }
     }
 }

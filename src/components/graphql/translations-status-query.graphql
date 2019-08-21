@@ -5,6 +5,7 @@ query TranslationsStatusQuery($status: String!) {
         content
         status
         votes {
+            id
             up
             user {
                 id
@@ -17,12 +18,15 @@ query TranslationsStatusQuery($status: String!) {
             pay
             status
             difficulty {
+                id
                 description
             }
             sourceLanguage {
+                id
                 name
             }
             targetLanguage {
+                id
                 name
             }
         }

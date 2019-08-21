@@ -19,12 +19,15 @@ mutation CreateTextMutation(
             pay
             status
             difficulty {
+                id
                 description
             }
             sourceLanguage {
+                id
                 name
             }
             targetLanguage {
+                id
                 name
             }
         }

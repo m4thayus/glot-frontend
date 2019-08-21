@@ -12,12 +12,15 @@
                 pay
                 status
                 difficulty {
+                    id
                     description
                 }
                 sourceLanguage {
+                    id
                     name
                 }
                 targetLanguage {
+                    id
                     name
                 }
             }

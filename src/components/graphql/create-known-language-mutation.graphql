@@ -6,10 +6,12 @@ mutation CreateKnownLanguageMutation($language_id: Int!, $difficulty_id: Int!) {
         id
         vetted
         language {
+            id
             name
             shortName
         }
         difficulty {
+            id
             level
             description
         }

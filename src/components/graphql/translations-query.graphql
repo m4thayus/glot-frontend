@@ -5,6 +5,7 @@
         content
         status
         votes {
+            id
             up
         }
         text {
@@ -14,12 +15,15 @@
             pay
             status
             difficulty {
+                id
                 description
             }
             sourceLanguage {
+                id
                 name
             }
             targetLanguage {
+                id
                 name
             }
         }

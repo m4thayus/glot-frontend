@@ -10,8 +10,7 @@ class ReviewTranslationsContainer extends React.Component {
 
         return (
             <Container>
-                <Segment raised>
-                    <Item.Group divided>
+                    <Item.Group>
                         {translations.map(translation => (
                             <ReviewTranslationsView
                                 key={translation.id}
@@ -20,6 +19,7 @@ class ReviewTranslationsContainer extends React.Component {
                             />)
                         )}
                     </Item.Group>
+                <Segment raised>
                     <Pagination fluid widths='9' secondary defaultActivePage={1} disabled totalPages={5} />
                 </Segment>
             </Container>

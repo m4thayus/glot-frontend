@@ -16,6 +16,7 @@
             content
             status
             text {
+                id
                 pay
             }
         }
@@ -23,6 +24,7 @@
             id
             vetted
             language {
+                id
                 name
                 shortName
             }

@@ -11,6 +11,7 @@ mutation updateTranslationMutation($id: Int!, $title: String!, $content: String!
         content
         status
         votes {
+            id
             up
         }
     }
