@@ -1,16 +1,24 @@
 import React from "react";
-import ReviewTranslationsView from "./review-translations-view";
+import { withRouter } from 'react-router-dom'
 import { Item, Container, Pagination, Segment} from 'semantic-ui-react'
+import ReviewTranslationsView from "./review-translations-view";
 
 class ReviewTranslationsContainer extends React.Component {
     render() {
         let { translations } = this.props
+        let user_id = this.props.location.state.user_id
 
         return (
             <Container>
                 <Segment raised>
                     <Item.Group divided>
-                        {translations.map(translation => <ReviewTranslationsView key={translation.id} translation={translation} />)}
+                        {translations.map(translation => (
+                            <ReviewTranslationsView
+                                key={translation.id}
+                                translation={translation}
+                                user_id={user_id}
+                            />)
+                        )}
                     </Item.Group>
                     <Pagination fluid widths='9' secondary defaultActivePage={1} disabled totalPages={5} />
                 </Segment>
@@ -19,4 +27,4 @@ class ReviewTranslationsContainer extends React.Component {
     }
 }
 
-export default ReviewTranslationsContainer
+export default withRouter(ReviewTranslationsContainer)

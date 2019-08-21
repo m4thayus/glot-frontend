@@ -6,7 +6,7 @@ import { Button, Icon } from "semantic-ui-react";
 const VOTE_MUTATION = loader('../graphql/vote-mutation.graphql');
 
 function UpvoteMutation(props){
-    let {translation, handleSubmit} = props
+    let {translation, hasVoted, handleSubmit} = props
     return (
         <React.Fragment>
         <Mutation
@@ -16,12 +16,20 @@ function UpvoteMutation(props){
             onError={error => console.log(error)}
         >
             {mutation => (
-                <Button 
-                    positive
-                    onClick={mutation}
-                >
-                    <Icon name='thumbs up' />
-                </Button>
+                hasVoted 
+                ? 
+                    <Button 
+                        disabled
+                    >
+                        <Icon name='thumbs up' />
+                    </Button>
+                :
+                    <Button 
+                        positive
+                        onClick={mutation}
+                    >
+                        <Icon name='thumbs up' />
+                    </Button>
             )}
         </Mutation>
         <Mutation
@@ -31,12 +39,20 @@ function UpvoteMutation(props){
             onError={error => console.log(error)}
         >
             {mutation => (
-                <Button 
-                    negative
-                    onClick={mutation}
-                >
-                    <Icon name='thumbs down' />
-                </Button>
+                hasVoted 
+                ? 
+                    <Button 
+                        disabled
+                    >
+                        <Icon name='thumbs down' />
+                    </Button>
+                :
+                    <Button 
+                        negative
+                        onClick={mutation}
+                    >
+                        <Icon name='thumbs down' />
+                    </Button>
             )}
         </Mutation>
         </React.Fragment>

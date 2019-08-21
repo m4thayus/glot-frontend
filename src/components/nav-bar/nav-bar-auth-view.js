@@ -26,7 +26,12 @@ function NavBarAuthView(props){
             <Menu.Item
                 name='Review A Translation'
                 as={Link}
-                to='/translations/review'
+                to={{
+                    pathname: `/translations/review`,
+                    state: {
+                        user_id: user.id
+                    }
+                }}
             />
             <Menu.Item position='right'>
                 <Button.Group>

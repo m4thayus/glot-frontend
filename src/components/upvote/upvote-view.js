@@ -2,9 +2,10 @@ import React from "react"
 import UpvoteMutation from "./upvote-mutation";
 
 function UpvoteView(props){
+    let { translation, hasVoted, handleSubmit } = props
     return (
         <React.Fragment>
-            <UpvoteMutation translation={props.translation} />
+            <UpvoteMutation translation={translation} hasVoted={hasVoted} handleSubmit={handleSubmit} />
         </React.Fragment>
     )
 }
