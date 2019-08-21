@@ -6,7 +6,6 @@ function ReviewTranslationsView(props){
     let { translation, user_id } = props
 
     return (
-        <React.Fragment>
         <Segment raised>
             <Grid columns={2}>
                 <Grid.Row>
@@ -45,8 +44,6 @@ function ReviewTranslationsView(props){
                 </Grid.Row>
             </Grid>
         </Segment>
-
-        </React.Fragment>
     )
 }
 

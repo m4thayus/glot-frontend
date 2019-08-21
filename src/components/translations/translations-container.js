@@ -9,10 +9,9 @@ class TranslationsContainer extends React.Component {
 
         return (
             <Container>
-                <Segment raised>
                     { translations.length === 0 
                         ?
-                            <React.Fragment>
+                            <Segment raised>
                                 <Header>That's unfortunate...</Header>
                                 <Segment textAlign="center" basic>
                                     <Button
@@ -24,16 +23,17 @@ class TranslationsContainer extends React.Component {
                                         <Button.Content hidden>Find A Text To Translate</Button.Content>
                                     </Button>
                                 </Segment>
-                            </React.Fragment>
+                            </Segment>
                         :
                             <React.Fragment>
                                 <Item.Group divided>
                                     {translations.map(translation => <TranslationsView key={translation.id} translation={translation} />)}
                                 </Item.Group>
-                                <Pagination fluid widths='9' secondary defaultActivePage={1} disabled totalPages={5} />
+                                <Segment raised>
+                                    <Pagination fluid widths='9' secondary defaultActivePage={1} disabled totalPages={5} />
+                                </Segment>
                             </React.Fragment>
                     }
-                </Segment>
             </Container>
         )
     }
