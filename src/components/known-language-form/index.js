@@ -1,0 +1,1 @@
+export { default } from './known-language-form-view.js'

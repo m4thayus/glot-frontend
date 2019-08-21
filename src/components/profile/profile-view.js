@@ -1,8 +1,8 @@
 import React from "react"
-import ProfileFormView from "./profile-form-view";
+import ProfileForm from "../profile-form";
 import { Segment, Modal, Button, Form, Header } from "semantic-ui-react";
 import KnownLanguageLabel from "./known-language-label";
-import KnownLanguageFormView from "./known-language-form-view";
+import KnownLanguageForm from "../known-language-form";
 
 function ProfileView(props){
     let { user, languages, username, password, last_name, first_name, handleChange } = props
@@ -54,7 +54,7 @@ function ProfileView(props){
                     <Modal 
                         closeIcon
                         trigger={<Button>Edit Profile</Button>}>
-                        <ProfileFormView 
+                        <ProfileForm
                             username={username}
                             password={password}
                             last_name={last_name}
@@ -66,7 +66,7 @@ function ProfileView(props){
                     <Modal 
                         closeIcon
                         trigger={<Button primary>Edit Known Languages</Button>}>
-                        <KnownLanguageFormView 
+                        <KnownLanguageForm 
                             known={user.knownLanguages}
                             languages={languages}
                         />
