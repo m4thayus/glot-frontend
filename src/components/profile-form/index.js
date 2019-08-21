@@ -1,1 +1,1 @@
-export { default } from './profile-form-view.js'
+export { default } from './profile-form-container.js'

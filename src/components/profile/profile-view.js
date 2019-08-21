@@ -5,7 +5,7 @@ import KnownLanguageLabel from "./known-language-label";
 import KnownLanguageForm from "../known-language-form";
 
 function ProfileView(props){
-    let { user, languages, username, password, last_name, first_name, handleChange } = props
+    let { user, languages } = props
 
     return (
         <Segment.Group raised>
@@ -19,14 +19,14 @@ function ProfileView(props){
                         label='First Name'
                         placeholder='First Name'
                         name='first_name'
-                        value={first_name}
+                        value={user.firstName}
                     />
                     <Form.Input
                         disabled
                         label='Last Name'
                         placeholder='Last Name'
                         name='last_name'
-                        value={last_name}
+                        value={user.lastName}
                     />
                     <Form.Input
                         disabled
@@ -55,11 +55,7 @@ function ProfileView(props){
                         closeIcon
                         trigger={<Button>Edit Profile</Button>}>
                         <ProfileForm
-                            username={username}
-                            password={password}
-                            last_name={last_name}
-                            first_name={first_name}
-                            handleChange={handleChange}
+                            user={user}
                         />
                     </Modal>
                     <Button.Or />
