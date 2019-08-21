@@ -31,4 +31,12 @@ query TranslationsStatusQuery($status: String!) {
             }
         }
     }
+    me {
+        id
+        languages {
+            id
+            name
+            shortName
+        }
+    }
 }

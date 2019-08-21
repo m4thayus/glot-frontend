@@ -24,7 +24,7 @@ function TranslationsQuery(props){
                         {loader}
                     </React.Fragment>
                 )
-                return <ReviewTranslationsContainer translations={data.translations}/>
+                return <ReviewTranslationsContainer translations={data.translations} languages={data.me.languages} />
             }}
         </Query> 
     )
