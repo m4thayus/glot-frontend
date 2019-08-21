@@ -9,19 +9,14 @@ function NavBarAuthView(props){
     return (
         <React.Fragment>
             <Menu.Item
-                name='Browse Texts'
-                as={Link}
-                to='/texts'
-            />
-            <Menu.Item
-                name='My Translations'
-                as={Link}
-                to='/translations'
-            />
-            <Menu.Item
                 name='Request A Translation'
                 as={Link}
                 to='/texts/new'
+            />
+            <Menu.Item
+                name='Add A Translation'
+                as={Link}
+                to='/texts'
             />
             <Menu.Item
                 name='Review Translations'
@@ -37,6 +32,9 @@ function NavBarAuthView(props){
                 <Button.Group>
                     <Button primary as={Link} to="/profile">
                         <Icon name='user outline' />{user.firstName}
+                    </Button>
+                    <Button color='green' as={Link} to="/translations">
+                        Translations
                     </Button>
                     <Button
                         onClick={() => {
