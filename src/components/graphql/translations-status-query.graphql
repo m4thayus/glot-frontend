@@ -6,6 +6,9 @@ query TranslationsStatusQuery($status: String!) {
         status
         votes {
             up
+            user {
+                id
+            }
         }
         text {
             id

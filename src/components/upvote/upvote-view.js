@@ -4,7 +4,7 @@ import UpvoteMutation from "./upvote-mutation";
 function UpvoteView(props){
     return (
         <React.Fragment>
-            <UpvoteMutation />
+            <UpvoteMutation translation={props.translation} />
         </React.Fragment>
     )
 }

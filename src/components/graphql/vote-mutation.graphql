@@ -1,0 +1,9 @@
+mutation VoteQuery($up: Boolean!, $translation_id: Int!) {
+    createVote (up: $up, translationId: $translation_id) {
+        id
+        up
+        translation {
+            id
+        }
+    }
+}

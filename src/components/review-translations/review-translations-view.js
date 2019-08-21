@@ -12,7 +12,7 @@ function ReviewTranslationsView(props){
                 <Item.Meta>{translation.status}</Item.Meta>
                 <Item.Description>{translation.content}</Item.Description>
                 <Item.Extra>
-                    <Upvote />
+                    <Upvote  translation={translation}/>
                 </Item.Extra>
             </Item.Content>
         </Item>

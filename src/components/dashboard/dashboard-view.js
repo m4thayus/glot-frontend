@@ -6,7 +6,6 @@ import ProgressView from "./progress-view";
 
 function DashboardView(props){
     let { user } = props
-    console.log(user)
     let approved_translations = user.translations.filter(translation => translation.status === 'approved')
     let total_pay = approved_translations.reduce(((sum ,translation) => sum + translation.text.pay), 0 )
     let pending_translations = user.translations.filter(translation => translation.status === 'pending')

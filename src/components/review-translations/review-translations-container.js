@@ -5,7 +5,6 @@ import { Item, Container, Pagination, Segment} from 'semantic-ui-react'
 class ReviewTranslationsContainer extends React.Component {
     render() {
         let { translations } = this.props
-        console.log(translations)
 
         return (
             <Container>
