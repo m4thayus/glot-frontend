@@ -23,6 +23,11 @@ function NavBarAuthView(props){
                 as={Link}
                 to='/texts/new'
             />
+            <Menu.Item
+                name='Review A Translation'
+                as={Link}
+                to='/translations/review'
+            />
             <Menu.Item position='right'>
                 <Button.Group>
                     <Button primary as={Link} to="/profile">

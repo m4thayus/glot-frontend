@@ -2,9 +2,10 @@ import React from "react"
 import { Query } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
-import TranslationsContainer from "./translations-container";
+import ReviewTranslationsContainer from "./review-translations-container";
 
-const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
+const TRANSLATIONS_QUERY = loader('../graphql/translations-status-query.graphql');
+const status = 'pending'
 
 function TranslationsQuery(props){
     const loader = (
@@ -14,7 +15,7 @@ function TranslationsQuery(props){
     )
 
     return (
-        <Query query={TRANSLATIONS_QUERY}>
+        <Query query={TRANSLATIONS_QUERY} variables={{ status }}>
             {({ loading, error, data }) => {
                 if (loading) return loader
                 if (error) return (
@@ -23,7 +24,7 @@ function TranslationsQuery(props){
                         {loader}
                     </React.Fragment>
                 )
-                return <TranslationsContainer translations={data.translations}/>
+                return <ReviewTranslationsContainer translations={data.translations}/>
             }}
         </Query> 
     )

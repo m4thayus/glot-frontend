@@ -1,0 +1,27 @@
+query TranslationsStatusQuery($status: String!) {
+    translations(status: $status) {
+        id
+        title 
+        content
+        status
+        votes {
+            up
+        }
+        text {
+            id
+            title 
+            content
+            pay
+            status
+            difficulty {
+                description
+            }
+            sourceLanguage {
+                name
+            }
+            targetLanguage {
+                name
+            }
+        }
+    }
+}

@@ -11,6 +11,7 @@ import Translations from '../translations'
 import TranslationForm from '../translation-form'
 import Dashboard from '../dashboard'
 import Profile from '../profile'
+import ReviewTranslations from '../review-translations'
 import { AUTH_TOKEN } from '../../constants';
 
 function App(props) {
@@ -25,6 +26,7 @@ function App(props) {
             <Route exact path="/texts" component={authToken ? Texts : Home} />
             <Route exact path="/texts/new" component={authToken ? TextForm : Home} />
             <Route exact path="/translations" component={authToken ? Translations : Home} />
+            <Route exact path="/translations/review" component={authToken ? ReviewTranslations : Home} />
             <Route path="/texts/:id/translate" component={authToken ? TranslationForm : Home} />
         </Segment>
     );
