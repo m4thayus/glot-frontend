@@ -22,10 +22,19 @@ function KnownLanguageMutation(props){
             onError={error => console.log(error)}
         >
             {mutation => (
+                selectedLanguage !== '' && selectedDifficulty !== ''
+                ?
                 <Button 
                     type='submit'
                     onClick={mutation}
                     color='green'
+                >
+                    Submit
+                </Button>
+                :
+                <Button 
+                    disabled
+                    type='submit'
                 >
                     Submit
                 </Button>
