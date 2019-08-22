@@ -54,7 +54,7 @@ function LanguageFormView(props){
                                 name='selectedDifficulty'
                                 fluid selection 
                                 placeholder='Difficulty'
-                                value={selectedDifficulty.description}
+                                value={selectedDifficulty !== undefined ? selectedDifficulty.description : ''}
                                 options={difficulties.length === 0 ? noDifficulties : difficulties} 
                                 onChange={handleDiffChange} />
                             :

@@ -7,8 +7,12 @@ const CREATE_KNOWN_LANGUAGE_MUTATION = loader('../graphql/create-known-language-
 
 function KnownLanguageMutation(props){
     let { selectedLanguage, selectedDifficulty, handleSubmit } = props
-    let language_id = parseInt(selectedLanguage.id, 10)
-    let difficulty_id = parseInt(selectedDifficulty.id, 10)
+    let language_id = ''
+    let difficulty_id = ''
+    if (selectedLanguage.id !== undefined && selectedDifficulty.id !== undefined) {
+        language_id = parseInt(selectedLanguage.id, 10)
+        difficulty_id = parseInt(selectedDifficulty.id, 10)
+    }
 
     return (
         <Mutation

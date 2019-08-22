@@ -12,7 +12,8 @@ class KnownLanguageFormContainer extends React.Component {
     handleLangChange = (event, data) => {
         let langObj = this.props.languages.find(language => language.name === data.value)
         this.setState({
-            [data.name]: langObj
+            [data.name]: langObj,
+            selectedDifficulty: ""
         })
     }
 
