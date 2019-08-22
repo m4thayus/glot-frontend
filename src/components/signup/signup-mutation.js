@@ -13,7 +13,7 @@ function SignupMutation(props){
             mutation={CREATE_USER_MUTATION}
             variables={{ username, password, first_name, last_name }}
             onCompleted={data => handleSubmit(data)}
-            onError={error => console.log(error)}
+            onError={error => window.alert("That username is taken.")}
         >
             {mutation => (
                 <Button 
