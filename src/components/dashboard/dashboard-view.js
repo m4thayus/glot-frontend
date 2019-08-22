@@ -9,7 +9,7 @@ function DashboardView(props){
     let approved_translations = user.translations.filter(translation => translation.status === 'approved')
     let total_pay = approved_translations.reduce(((sum ,translation) => sum + translation.text.pay), 0 )
     let pending_translations = user.translations.filter(translation => translation.status === 'pending')
-    let num_known_langs = user.knownLanguages.length
+    let num_known_langs = user.languages.length
 
     let stats = [
         {key: 'langs', label: 'Known Languages', value: num_known_langs},
