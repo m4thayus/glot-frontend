@@ -39,7 +39,7 @@ function TranslationsView(props){
                     <Grid.Column>
                     <Container textAlign='center'>
                     {
-                        translation.status === 'approved'
+                        translation.status === 'complete'
                         ?
                             <Button 
                                 fluid
