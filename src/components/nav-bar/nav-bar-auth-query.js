@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import NavBarAuthView from "./nav-bar-auth-view";
 
-const USER_QUERY =  loader('../graphql/basic-user-query.graphql');
+const USER_QUERY =  loader('../graphql/queries/basic-user-query.graphql');
 
 
 function NavBarAuthQuery(props){

@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import TextFormContainer from "./text-form-container";
 
-const LANGUAGES_QUERY =  loader('../graphql/languages-query.graphql');
+const LANGUAGES_QUERY =  loader('../graphql/queries/languages-query.graphql');
 
 
 function TextFormQuery(props){

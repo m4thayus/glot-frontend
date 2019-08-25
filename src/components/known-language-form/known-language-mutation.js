@@ -3,8 +3,8 @@ import { Mutation } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const CREATE_KNOWN_LANGUAGE_MUTATION = loader('../graphql/create-known-language-mutation.graphql');
-const USER_QUERY =  loader('../graphql/user-profile-query.graphql');
+const CREATE_KNOWN_LANGUAGE_MUTATION = loader('../graphql/mutations/create-known-language-mutation.graphql');
+const USER_QUERY =  loader('../graphql/queries/user-profile-query.graphql');
 
 function KnownLanguageMutation(props){
     let { selectedLanguage, selectedDifficulty, handleSubmit } = props

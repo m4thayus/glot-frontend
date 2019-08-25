@@ -3,7 +3,7 @@ import { Mutation } from "react-apollo";
 import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const CREATE_TEXT_MUTATION = loader('../graphql/create-text-mutation.graphql');
+const CREATE_TEXT_MUTATION = loader('../graphql/mutations/create-text-mutation.graphql');
 
 function TextFormMutation(props){
     let {title, content, pay, source_language, target_language, difficulty, handleSubmit } = props

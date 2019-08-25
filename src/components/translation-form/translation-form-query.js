@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import TranslationFormContainer from "./translation-form-container";
 
-const TRANSLATION_QUERY = loader('../graphql/translation-query.graphql');
+const TRANSLATION_QUERY = loader('../graphql/queries/translation-query.graphql');
 
 function TranslationFormQuery(props){
     const text_id = parseInt(props.match.params.id, 10)

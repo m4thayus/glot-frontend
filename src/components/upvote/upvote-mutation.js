@@ -3,7 +3,7 @@ import { Mutation } from "react-apollo";
 import { loader } from 'graphql.macro';
 import { Button, Icon } from "semantic-ui-react";
 
-const VOTE_MUTATION = loader('../graphql/vote-mutation.graphql');
+const VOTE_MUTATION = loader('../graphql/mutations/vote-mutation.graphql');
 
 function UpvoteMutation(props){
     let {translation, hasVoted, handleSubmit} = props

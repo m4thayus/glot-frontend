@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import TranslationsContainer from "./translations-container";
 
-const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
+const TRANSLATIONS_QUERY = loader('../graphql/queries/translations-query.graphql');
 
 function TranslationsQuery(props){
     const loader = (

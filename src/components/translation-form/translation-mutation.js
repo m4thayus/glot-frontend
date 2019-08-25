@@ -3,9 +3,9 @@ import { Mutation } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const CREATE_TRANSLATION_MUTATION = loader('../graphql/create-translation-mutation.graphql');
-const UPDATE_TRANSLATION_MUTATION = loader('../graphql/update-translation-mutation.graphql');
-const TRANSLATIONS_QUERY = loader('../graphql/translations-query.graphql');
+const CREATE_TRANSLATION_MUTATION = loader('../graphql/mutations/create-translation-mutation.graphql');
+const UPDATE_TRANSLATION_MUTATION = loader('../graphql/mutations/update-translation-mutation.graphql');
+const TRANSLATIONS_QUERY = loader('../graphql/queries/translations-query.graphql');
 
 function TranslationMutation(props){
     let { translation_id, title, content, text_id, handleSubmit } = props

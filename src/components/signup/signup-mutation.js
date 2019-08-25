@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const CREATE_USER_MUTATION = loader('../graphql/create-user-mutation.graphql');
+const CREATE_USER_MUTATION = loader('../graphql/mutations/create-user-mutation.graphql');
 
 function SignupMutation(props){
     let { username, password, first_name, last_name, handleSubmit } = props

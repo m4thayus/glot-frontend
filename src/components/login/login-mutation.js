@@ -3,7 +3,7 @@ import { Mutation } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Button } from "semantic-ui-react";
 
-const LOGIN_USER_MUTATION = loader('../graphql/login-user-mutation.graphql');
+const LOGIN_USER_MUTATION = loader('../graphql/mutations/login-user-mutation.graphql');
 
 function LoginMutation(props){
 

@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import ReviewTranslationsContainer from "./review-translations-container";
 
-const TRANSLATIONS_QUERY = loader('../graphql/translations-status-query.graphql');
+const TRANSLATIONS_QUERY = loader('../graphql/queries/translations-status-query.graphql');
 const status = 'pending'
 
 function TranslationsQuery(props){

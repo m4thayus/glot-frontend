@@ -3,7 +3,7 @@ import { Query } from 'react-apollo'
 import { loader } from 'graphql.macro';
 import { Dimmer, Loader } from "semantic-ui-react";
 import DashboardContainer from './dashboard-container'
-const USER_QUERY =  loader('../graphql/detailed-user-query.graphql');
+const USER_QUERY =  loader('../graphql/queries/detailed-user-query.graphql');
 
 function DashboardQuery(props){
     const loader = (
