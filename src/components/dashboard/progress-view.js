@@ -1,19 +1,9 @@
 import React from "react"
 import { Header, Progress, Segment } from "semantic-ui-react";
 
-const statusToNum = string => {
-    switch (string) {
-        case 'complete':
-            return 3       
-        case 'pending':
-            return 2            
-        default:
-            return 1
-    }
-}
 
 function ProgressView(props){
-    let { item } = props
+    let { item, statusToNum } = props
     return (
         <Segment>
             <Header>{item.title}</Header>

@@ -3,6 +3,27 @@ import { Header, Statistic, Button, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import ProgressView from "./progress-view";
 
+const textStatusToNum = string => {
+    switch (string) {
+        case 'complete':
+            return 3       
+        case 'pending':
+            return 2            
+        default:
+            return 1
+    }
+}
+
+const translationStatusToNum = string => {
+    switch (string) {
+        case 'complete':
+            return 3       
+        case 'pending':
+            return 2            
+        default:
+            return 1
+    }
+}
 
 function DashboardView(props){
     let { user } = props
@@ -59,11 +80,11 @@ function DashboardView(props){
     // ]
 
     let textsProgress = user.texts.map(text => (
-        <ProgressView key={text.id} item={text} />
+        <ProgressView key={text.id} item={text} total={5} statusToNum={textStatusToNum} />
     ))
 
     let translationsProgress = user.translations.map(translation => (
-        <ProgressView key={translation.id} item={translation} />
+        <ProgressView key={translation.id} item={translation} total={5} statusToNum={translationStatusToNum} />
     ))
 
     let requestTranslation = (
