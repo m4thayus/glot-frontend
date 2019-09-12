@@ -10,12 +10,12 @@ import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { setContext } from 'apollo-link-context'
-import { AUTH_TOKEN } from './constants'
+import { AUTH_TOKEN, BACKEND_URL } from './constants'
 
 const httpLink = createHttpLink({
     // The path to your GraphQL powered server
     // I use port 4000
-    uri: 'http://localhost:4000/graphql'
+    uri: BACKEND_URL
 })
 
 const authLink = setContext((_, { headers }) => {
